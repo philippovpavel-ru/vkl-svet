@@ -1,0 +1,26 @@
+# standart content
+/wp-admin/
+/wp-includes/
+/wp-content/*
+/.htaccess
+/index.php
+/license.txt
+/readme.html
+/wp-*.php
+/xmlrpc.php
+
+# Other
+*.log
+/.osp
+
+# Plugins with exceptions
+!/wp-content/plugins/
+/wp-content/plugins/*
+!/wp-content/plugins/phpavel-*
+!/wp-content/plugins/snd-*
+
+# Themes with exceptions
+!/wp-content/themes/
+/wp-content/themes/index.php
+/wp-content/themes/twenty*/
+/wp-content/themes/*/assets/*.html

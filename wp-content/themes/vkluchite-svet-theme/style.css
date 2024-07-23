@@ -1,0 +1,17 @@
+/**
+* Theme Name:  Включите свет
+* Description: Разработанная под заказ тема Включите свет
+*
+* Author:      СайтыиДизайн.рф
+* Author URI:  https://сайтыидизайн.рф
+*
+*
+* License:     GNU General Public License v2 or later
+* License URI: http://www.gnu.org/licenses/gpl-2.0.html
+*
+* Version:     1.0
+*/
+
+#wpadminbar * {
+  color: unset;
+}
