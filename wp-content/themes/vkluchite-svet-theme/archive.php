@@ -2,7 +2,7 @@
 
 <section class="sd-blog">
   <div class="container">
-    <h2>Блог</h2>
+    <h2><?php echo get_the_archive_title(); ?></h2>
 
     <?php if (have_posts()) : ?>
 
@@ -23,7 +23,7 @@
       ]);
       ?>
 
-    <?php else : ?>
+    <?php else: ?>
       <p>Записи пока отсутствуют</p>
     <?php endif; ?>
   </div>

@@ -1,3 +1,11 @@
+  <?php
+  $options = [];
+  if (function_exists('get_fields')) {
+    $options = get_fields('option');
+  }
+
+  $cf7_id = isset($options['contact_form_id']) ? intval($options['contact_form_id']) : '';
+  ?>
   <footer class="sd-footer">
     <div class="container">
       <div class="sd-footer__logo-box">
@@ -31,16 +39,53 @@
       ?>
 
       <div class="sd-footer__contacts">
-        <a href="tel:+79150009081" class="sd-footer__tel">+7 (915) 000-90-81</a>
-        <a href="mailto:svet@mail.ru" class="sd-footer__mail">svet@mail.ru</a>
+        <?php
+        $phone = isset($options['phone']) ? esc_html($options['phone']) : '';
+        $email = isset($options['email']) ? sanitize_email($options['email']) : '';
 
-        <div class="sd-form__social-box">
-          <a href="https://t.me/NatalyLandyreva">tg</a>
-          <a href="https://wa.me/79150009081">whats app</a>
-          <a href="https://www.instagram.com/gnk_design">inst</a>
-          <a href="https://vk.com/im?media=&sel=-211310209">vk</a>
-          <a class="sd-header__modal-button"></a>
-        </div>
+        if ($phone) {
+          $phone_url = 'tel:+' . preg_replace('![^0-9]+!', '', $phone);
+          echo "<a href=\"$phone_url\" class=\"sd-footer__tel\">$phone</a>";
+        }
+
+        if ($email) {
+          $email_url = 'mailto:' . $email;
+          echo "<a href=\"$email_url\" class=\"sd-footer__mail\">$email</a>";
+        }
+        ?>
+
+        <?php
+        $vk_url = isset($options['vk_url']) ? esc_url($options['vk_url']) : '';
+        $telegram_url = isset($options['telegram_url']) ? esc_url($options['telegram_url']) : '';
+        $whatsapp_url = isset($options['whatsapp_url']) ? esc_url($options['whatsapp_url']) : '';
+        $instagram_url = isset($options['instagram_url']) ? esc_url($options['instagram_url']) : '';
+
+        $is_true = $vk_url || $telegram_url || $whatsapp_url || $instagram_url || $cf7_id;
+        ?>
+
+        <?php if ($is_true) : ?>
+          <div class="sd-form__social-box">
+            <?php if ($telegram_url) : ?>
+              <a href="<?php echo $telegram_url; ?>" target="_blank" title="Telegram">tg</a>
+            <?php endif; ?>
+
+            <?php if ($whatsapp_url) : ?>
+              <a href="<?php echo $whatsapp_url; ?>" target="_blank" title="WhatsApp">whats app</a>
+            <?php endif; ?>
+
+            <?php if ($instagram_url) : ?>
+              <a href="<?php echo $instagram_url; ?>" target="_blank" title="Instagram">inst</a>
+            <?php endif; ?>
+
+            <?php if ($vk_url) : ?>
+              <a href="<?php echo $vk_url; ?>" target="_blank" title="VK">vk</a>
+            <?php endif; ?>
+
+            <?php if ($cf7_id) : ?>
+              <a class="sd-header__modal-button"></a>
+            <?php endif; ?>
+          </div>
+        <?php endif; ?>
       </div>
 
       <div class="sd-footer__copy-mob">
@@ -63,45 +108,16 @@
       <a href="favorite.html" class="favorite"></a>
       <a href="cart.html" class="cart"></a>
     <?php endif; ?>
-    <a class="sd-header__modal-button"></a>
+
+    <?php if ($cf7_id) : ?>
+      <a class="sd-header__modal-button"></a>
+    <?php endif; ?>
   </div>
 
-  <dialog id="modalDialog">
-    <div class="sd-dialog__wrapper">
-      <div class="sd-dialog__grid">
-        <img src="<?= VKLS_THEME_URL; ?>/assets/img/modal.jpeg" alt="" class="modal__img">
-        <div class="inline-inner">
-          <h4 class="text-center">
-            Заполните форму обратной связи
-          </h4>
-          <h5>
-            и мы свяжемся с вами в ближайшее время
-          </h5>
-          <form action="#" class="wpcf7-form">
-
-            <span class="wpcf7-form-control-wrap">
-              <input class="wpcf7-form-control wpcf7-text" placeholder="Имя" value="" type="text" name="square" />
-            </span>
-
-            <span class="wpcf7-form-control-wrap">
-              <input class="wpcf7-form-control wpcf7-tel" placeholder="Телефон" value="" type="tel" name="user-tel" />
-            </span>
-
-            <input class="wpcf7-form-control wpcf7-submit" type="submit" value="Оставить заявку" />
-            <p class="sd-form__description">
-              Отправляя, форму обратной связи, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных
-            </p>
-          </form>
-
-          <a class="sd-dialog__close">
-            <img src="<?= VKLS_THEME_URL; ?>/assets/img/close.svg" alt="">
-          </a>
-        </div>
-      </div>
-    </div>
-  </dialog>
+  <?php if ($cf7_id) {
+    get_template_part('partials/dialog', 'cf7', ['options' => $options]);
+  } ?>
 
   <?php wp_footer(); ?>
-  </body>
-
-  </html>
+</body>
+</html>

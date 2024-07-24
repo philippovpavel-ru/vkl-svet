@@ -15,3 +15,14 @@
 #wpadminbar * {
   color: unset;
 }
+
+.wpcf7-spinner,
+.wpcf7-response-output {
+  display: none;
+}
+
+.wpcf7-not-valid-tip {
+  position: absolute;
+  font-size: 12px;
+  right: 0;
+}

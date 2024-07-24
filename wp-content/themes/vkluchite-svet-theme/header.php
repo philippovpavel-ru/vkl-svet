@@ -13,6 +13,13 @@
 <body <?php body_class(); ?>>
   <?php wp_body_open(); ?>
 
+  <?php
+  $options = [];
+  if (function_exists('get_fields')) {
+    $options = get_fields('option');
+  }
+  ?>
+
   <header class="sd-header">
     <div class="container">
       <?php
@@ -43,11 +50,23 @@
         <?php endif; ?>
 
         <div class="sd-header__tel-box">
-          <a href="tel:+79150009081" class="sd-header__tel">+7 (915) 000-90-81</a>
+          <?php
+          $phone = isset($options['phone']) ? esc_html($options['phone']) : '';
+          $cf7_id = isset($options['contact_form_id']) ? esc_html($options['contact_form_id']) : '';
+          $cf7_text_button = 
+            isset($options['cf7_text_button_to_header']) && $options['cf7_text_button_to_header']
+            ? esc_html($options['cf7_text_button_to_header'])
+            : 'Заказать звонок';
 
-          <a class="sd-header__modal-button">
-            Заказать звонок
-          </a>
+          if ($phone) {
+            $phone_url = 'tel:+' . preg_replace('![^0-9]+!', '', $phone);
+            echo "<a href=\"$phone_url\" class=\"sd-header__tel\">$phone</a>";
+          }
+
+          if ($cf7_id) {
+            echo "<a class=\"sd-header__modal-button\">$cf7_text_button</a>";
+          }
+          ?>
         </div>
       </div>
 
@@ -77,15 +96,47 @@
       ]);
       ?>
 
-      <a href="tel:+79150009081" class="sd-burger__tel">+7 (915) 000-90-81</a>
+      <?php
+      $phone = isset($options['phone']) ? esc_html($options['phone']) : '';
+      if ($phone) {
+        $phone_url = 'tel:+' . preg_replace('![^0-9]+!', '', $phone);
+        echo "<a href=\"$phone_url\" class=\"sd-burger__tel\">$phone</a>";
+      }
+      ?>
 
-      <div class="sd-form__social-box">
-        <a href="https://t.me/NatalyLandyreva">
-          tg
-        </a>
-        <a href="https://wa.me/79150009081">whats app</a>
-        <a href="https://www.instagram.com/gnk_design">inst</a>
-        <a href="https://vk.com/im?media=&sel=-211310209">vk</a>
-      </div>
+      <?php
+      $vk_url = isset($options['vk_url']) ? esc_url($options['vk_url']) : '';
+      $telegram_url = isset($options['telegram_url']) ? esc_url($options['telegram_url']) : '';
+      $whatsapp_url = isset($options['whatsapp_url']) ? esc_url($options['whatsapp_url']) : '';
+      $instagram_url = isset($options['instagram_url']) ? esc_url($options['instagram_url']) : '';
+
+      $is_true = $vk_url || $telegram_url || $whatsapp_url || $instagram_url;
+      ?>
+
+      <?php if ($is_true) : ?>
+        <div class="sd-form__social-box">
+          <?php if ($telegram_url) : ?>
+            <a href="<?php echo $telegram_url; ?>" target="_blank" title="Telegram">tg</a>
+          <?php endif; ?>
+
+          <?php if ($whatsapp_url) : ?>
+            <a href="<?php echo $whatsapp_url; ?>" target="_blank" title="WhatsApp">whats app</a>
+          <?php endif; ?>
+
+          <?php if ($instagram_url) : ?>
+            <a href="<?php echo $instagram_url; ?>" target="_blank" title="Instagram">inst</a>
+          <?php endif; ?>
+
+          <?php if ($vk_url) : ?>
+            <a href="<?php echo $vk_url; ?>" target="_blank" title="VK">vk</a>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </nav>
+
+  <?php
+  if (!is_front_page()) {
+    snd_breadcrumbs();
+  }
+  ?>

@@ -16,7 +16,6 @@
 # Plugins with exceptions
 !/wp-content/plugins/
 /wp-content/plugins/*
-!/wp-content/plugins/phpavel-*
 !/wp-content/plugins/snd-*
 
 # Themes with exceptions

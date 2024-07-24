@@ -6,8 +6,8 @@
       в&nbsp;современной эстетике</h1>
     <h2 class="wow animate__animated animate__fadeInRight">Воплощаем светлые идеи в&nbsp;жизнь</h2>
     <div class="sd-main__img-box">
-      <img src="<?=  VKLS_THEME_URL; ?>/assets/img/m1.jpeg" alt="" class="wow animate__animated animate__fadeInLeft">
-      <img src="<?=  VKLS_THEME_URL; ?>/assets/img/m2.jpeg" alt="" class="wow animate__animated animate__fadeInUp">
+      <img src="<?= VKLS_THEME_URL; ?>/assets/img/m1.jpeg" alt="" class="wow animate__animated animate__fadeInLeft">
+      <img src="<?= VKLS_THEME_URL; ?>/assets/img/m2.jpeg" alt="" class="wow animate__animated animate__fadeInUp">
     </div>
   </div>
 </main>
@@ -17,7 +17,7 @@
     <h2 class="wow animate__animated animate__fadeInLeft">Акции</h2>
     <div class="swiper swiper-main">
       <div class="swiper-wrapper">
-        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?=  VKLS_THEME_URL; ?>/assets/img/s1.jpeg');">
+        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?= VKLS_THEME_URL; ?>/assets/img/s1.jpeg');">
           <h3>Дизайнерское освещение
             в&nbsp;современной эстетике</h3>
           <h4>
@@ -25,14 +25,14 @@
             Bijout
           </h4>
         </a>
-        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?=  VKLS_THEME_URL; ?>/assets/img/m2.jpeg');">
+        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?= VKLS_THEME_URL; ?>/assets/img/m2.jpeg');">
           <h3>Завораживающая коллекция люстр</h3>
           <h4>
             <span>серия</span>
             Mira
           </h4>
         </a>
-        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?=  VKLS_THEME_URL; ?>/assets/img/m1.jpeg');">
+        <a href="catalog.html" class="swiper-slide" style="background-image: url('<?= VKLS_THEME_URL; ?>/assets/img/m1.jpeg');">
           <h3>Керамика высокого качества</h3>
           <h4>
             <span>серия</span>
@@ -53,7 +53,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
             в кухню и гостиную</a>
@@ -64,7 +64,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">
             Люстра эксклюзивная ручная работа Aqua luxury brass
@@ -75,7 +75,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">Настенный светильник Aqua Copper</a>
           <a href="card.html" class="sd-card__price">19 300 — 22 300 ₽</a>
@@ -85,7 +85,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">Настенный светильник Voa Porch Copper silumin</a>
           <a href="card.html" class="sd-card__price">16 500 ₽</a>
@@ -95,7 +95,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
             в кухню и гостиную</a>
@@ -106,7 +106,7 @@
         <div class="swiper-slide sd-card">
           <a class="sd-card__favorite"></a>
           <a href="card.html" class="sd-card__img">
-            <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="">
+            <img src="<?= VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="">
           </a>
           <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
             в кухню и гостиную</a>
@@ -133,8 +133,8 @@
           </p>
         </div>
         <div class="sd-collections__card-imgs">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="" class="wow animate__animated animate__fadeInRight ">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="" class="wow animate__animated animate__fadeInRight ">
         </div>
         <p class="sd-collections__card-description sd-collections__card-description_m">
           Bijout одна из самых популярных коллекций этого сезона,
@@ -151,8 +151,8 @@
           </p>
         </div>
         <div class="sd-collections__card-imgs">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="" class="wow animate__animated animate__fadeInLeft ">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/s1.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/c1.jpeg" alt="" class="wow animate__animated animate__fadeInLeft ">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/s1.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
         </div>
         <p class="sd-collections__card-description sd-collections__card-description_m">
           Нежнейшая коллекция светильников выполнена из хрустальных птичек, которые сидят на ветке дерева. История о
@@ -169,8 +169,8 @@
           </p>
         </div>
         <div class="sd-collections__card-imgs">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="" class="wow animate__animated  animate__fadeInRight">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/c2.jpeg" alt="" class="wow animate__animated animate__fadeInUp ">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/c3.jpeg" alt="" class="wow animate__animated  animate__fadeInRight">
         </div>
         <p class="sd-collections__card-description sd-collections__card-description_m">
           Природная коллекция выполнена из металла высокого качества, и стекла ручной работы, серия напоминает
@@ -190,7 +190,7 @@
         <h4>&mdash;&nbsp;это бренд, который позволит вам создавать всевозможные сценарии освещения.
           Мы&nbsp;не&nbsp;боимся смелых решений!</h4>
         <div class="sd-about__description-box">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/a-circle.jpeg" alt="" class="wow animate__animated animate__fadeInLeft">
+          <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-circle.jpeg" alt="" class="wow animate__animated animate__fadeInLeft">
           <p>
             Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
             в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
@@ -204,7 +204,7 @@
           </p>
         </div>
       </div>
-      <img src="<?=  VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-about__img-big wow animate__animated animate__fadeInRight">
+      <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-about__img-big wow animate__animated animate__fadeInRight">
       <div class="sd-about__description-box sd-about__description-box_mob">
         <p>
           Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
@@ -220,7 +220,7 @@
       </div>
     </div>
     <div class="sd-about__bottom">
-      <img src="<?=  VKLS_THEME_URL; ?>/assets/img/a-small.jpg" alt="" class=" wow animate__animated animate__fadeInUp">
+      <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-small.jpg" alt="" class=" wow animate__animated animate__fadeInUp">
       <h5>
         Мы&nbsp;делаем все возможное, <br>
         чтобы ваш дом был всегда
@@ -298,6 +298,13 @@
   <div class="swiper-scrollbar swiper-scrollbar-stage"></div>
 </section>
 
+
+<?php
+$options = [];
+if (function_exists('get_fields')) {
+  $options = get_fields('option');
+}
+?>
 <section class="sd-form">
   <div class="sd-form__wrapper">
     <div class="container">
@@ -308,29 +315,38 @@
       <div class="sd-form__form-box">
         <h4>Оставьте заявку</h4>
         <h5>и&nbsp;мы&nbsp;перезвоним вам в&nbsp;ближайшее время</h5>
-        <form action="#" class="wpcf7-form">
-          <span class="wpcf7-form-control-wrap">
-            <input class="wpcf7-form-control wpcf7-text" placeholder="Имя" value="" type="text" name="square" />
-          </span>
 
-          <span class="wpcf7-form-control-wrap">
-            <input class="wpcf7-form-control wpcf7-tel" placeholder="Телефон" value="" type="tel" name="user-tel" />
-          </span>
+        <?php echo do_shortcode('[contact-form-7 id="5b7fd5b"]'); ?>
+      </div>
 
-          <input class="wpcf7-form-control wpcf7-submit" type="submit" value="Оставить заявку" />
-          <p class="sd-form__description">
-            Отправляя, форму обратной связи, вы&nbsp;соглашаетесь с&nbsp;политикой обработки персональных данных
-          </p>
-        </form>
-      </div>
-      <div class="sd-form__social-box">
-        <a href="https://t.me/NatalyLandyreva" class="wow animate__animated animate__fadeInUp">
-          tg
-        </a>
-        <a href="https://wa.me/79150009081" class="wow animate__animated animate__fadeInUp">whats app</a>
-        <a href="https://www.instagram.com/gnk_design" class="wow animate__animated animate__fadeInUp">inst</a>
-        <a href="https://vk.com/im?media=&sel=-211310209" class="wow animate__animated animate__fadeInUp">vk</a>
-      </div>
+      <?php
+      $vk_url = isset($options['vk_url']) ? esc_url($options['vk_url']) : '';
+      $telegram_url = isset($options['telegram_url']) ? esc_url($options['telegram_url']) : '';
+      $whatsapp_url = isset($options['whatsapp_url']) ? esc_url($options['whatsapp_url']) : '';
+      $instagram_url = isset($options['instagram_url']) ? esc_url($options['instagram_url']) : '';
+
+      $is_true = $vk_url || $telegram_url || $whatsapp_url || $instagram_url;
+      ?>
+
+      <?php if ($is_true) : ?>
+        <div class="sd-form__social-box">
+          <?php if ($telegram_url) : ?>
+            <a href="<?php echo $telegram_url; ?>" target="_blank" title="Telegram" class="wow animate__animated animate__fadeInUp">tg</a>
+          <?php endif; ?>
+
+          <?php if ($whatsapp_url) : ?>
+            <a href="<?php echo $whatsapp_url; ?>" target="_blank" title="WhatsApp" class="wow animate__animated animate__fadeInUp">whats app</a>
+          <?php endif; ?>
+
+          <?php if ($instagram_url) : ?>
+            <a href="<?php echo $instagram_url; ?>" target="_blank" title="Instagram" class="wow animate__animated animate__fadeInUp">inst</a>
+          <?php endif; ?>
+
+          <?php if ($vk_url) : ?>
+            <a href="<?php echo $vk_url; ?>" target="_blank" title="VK" class="wow animate__animated animate__fadeInUp">vk</a>
+          <?php endif; ?>
+        </div>
+      <?php endif; ?>
     </div>
   </div>
 </section>
@@ -381,8 +397,8 @@
         Перевод денежных средств на банковские реквизиты компании.
       </p>
     </div>
-    <img src="<?=  VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-delivery__img1 wow animate__animated animate__fadeInRight">
-    <img src="<?=  VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-delivery__img2 wow animate__animated animate__fadeInUp">
+    <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-delivery__img1 wow animate__animated animate__fadeInRight">
+    <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-delivery__img2 wow animate__animated animate__fadeInUp">
   </div>
 </section>
 
@@ -470,46 +486,44 @@
         <span class="sd-studio__span1 wow animate__animated animate__fadeInRight">gnk design</span>
         <span class="sd-studio__span2">создадим дизайн-проект вашей мечты</span>
       </h2>
-      <img src="<?=  VKLS_THEME_URL; ?>/assets/img/studio2.png" class="sd-studio__decor">
+      <img src="<?= VKLS_THEME_URL; ?>/assets/img/studio2.png" class="sd-studio__decor">
     </div>
   </a>
 </section>
 
+<?php
+$get_posts = get_posts([
+  'post_type' => 'post',
+  'posts_per_page' => 3,
+]);
+?>
 <section class="sd-blog">
   <div class="container">
     <h2 class="wow animate__animated animate__fadeInLeft">Блог</h2>
-    <div class="swiper swiper-blog">
-      <div class="swiper-wrapper sd-blog__grid">
-        <div class="sd-blog__card swiper-slide">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/b1.jpeg" alt="">
-          <h3>Люстра в интерьере. Как выбрать?</h3>
-          <p>
-            Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
-            в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
-          </p>
-          <a href="article.html">Читать статью</a>
-        </div>
-        <div class="sd-blog__card swiper-slide">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/b2.jpeg" alt="">
-          <h3>Люстра в интерьере. Как выбрать?</h3>
-          <p>
-            Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
-            в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
-          </p>
-          <a href="article.html">Читать статью</a>
-        </div>
-        <div class="sd-blog__card swiper-slide">
-          <img src="<?=  VKLS_THEME_URL; ?>/assets/img/b3.jpeg" alt="">
-          <h3>Люстра в интерьере. Как выбрать?</h3>
-          <p>
-            Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
-            в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
-          </p>
-          <a href="article.html">Читать статью</a>
+
+    <?php if ($get_posts) : ?>
+      <?php global $post; ?>
+
+      <div class="swiper swiper-blog">
+        <div class="swiper-wrapper sd-blog__grid">
+          <?php foreach ($get_posts as $post) {
+            setup_postdata($post);
+
+            get_template_part('partials/card', 'default');
+          } ?>
         </div>
       </div>
-    </div>
-    <a href="blog.html" class="sd-blog__all">СМОТРЕТЬ ВСЕ СТАТЬИ</a>
+
+      <?php $page_for_posts_id = get_option('page_for_posts'); ?>
+
+      <?php if ($page_for_posts_id) : ?>
+        <a href="<?php echo esc_url(get_permalink($page_for_posts_id)); ?>" class="sd-blog__all">СМОТРЕТЬ ВСЕ СТАТЬИ</a>
+      <?php endif; ?>
+
+      <?php wp_reset_postdata(); ?>
+    <?php else : ?>
+      <p>На сайте пока нет статей</p>
+    <?php endif; ?>
   </div>
 </section>
 
