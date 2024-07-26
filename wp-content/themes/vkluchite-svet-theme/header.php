@@ -43,11 +43,11 @@
       <div class="sd-header__buttons">
         <a class="sd-header__search-button"></a>
 
-        <?php if (class_exists('WooCommerce')) : ?>
-          <a href="cart.html" class="sd-header__cart-button">
-            100
-          </a>
-        <?php endif; ?>
+        <?php
+        if (class_exists('WooCommerce')) {
+          vklsvet_wc_cart_link();
+        }
+        ?>
 
         <div class="sd-header__tel-box">
           <?php

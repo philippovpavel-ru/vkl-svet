@@ -1,8 +1,7 @@
-const body = document.querySelector('body');
 const html = document.querySelector('html');
+const body = document.querySelector('body');
 
 // бургер
-
 if (document.querySelector(".sd-header__burger-button")) {
   const burgerButton = document.querySelector('.sd-header__burger-button');
   const burgerMenu = document.querySelector('.sd-burger');
@@ -224,14 +223,20 @@ if (document.querySelector("#modalDialogAut")) {
 }
 
 // кнопка "В корзину"
+(function () {
+  if (!document.querySelector('.sd-card')) return;
 
-const card = document.querySelectorAll('.sd-card');
-card.forEach((e) => {
-  const cart = e.querySelector('.sd-card__cart');
-  cart.addEventListener('click', (ep) => {
-    cart.classList.toggle('active');
+  const card = document.querySelectorAll('.sd-card');
+  card.forEach(function (e) {
+    if (!e.querySelector('.sd-card__cart')) return;
+  
+    const cart = e.querySelector('.sd-card__cart');
+  
+    cart.addEventListener('click', (ep) => {
+      cart.classList.toggle('active');
+    })
   })
-})
+})();
 
 if (document.querySelector(".sd-card__cart_p")) {
   const cart = document.querySelector('.sd-card__cart');
@@ -712,3 +717,51 @@ if (document.querySelector('.wow')) {
   )
   wow.init();
 }
+
+// сортировка
+(function () {
+  if (!document.querySelector('.b-header__currency')) return;
+
+  const currencyNow = document.querySelector('.b-header__currency-now');
+  const currencyMenu = document.querySelector('.b-header__currency-menu');
+
+  const default_form_orderby = document.querySelector('.woocommerce-ordering');
+  const selectElement = default_form_orderby.querySelector('.orderby');
+
+  // Скрываем стандартную форму сортировки
+  default_form_orderby.style.display = 'none';
+
+  // Инициализация
+  updateCurrencyMenu();
+
+  // Обновление при изменении значения в форме
+  selectElement.addEventListener('change', updateCurrencyMenu);
+
+  // Функция для обновления содержимого b-header__currency-menu
+  function updateCurrencyMenu() {
+    currencyMenu.innerHTML = ''; // Очистка содержимого
+
+    // Добавление элементов из формы
+    Array.from(selectElement.options).forEach(function (option) {
+      const currencyType = document.createElement('a');
+
+      currencyType.classList.add('b-header__currency-type');
+      currencyType.textContent = option.textContent;
+      currencyType.setAttribute('data-value', option.value);
+      currencyMenu.appendChild(currencyType);
+
+      if (option.getAttribute('selected')) {
+        currencyNow.textContent = option.textContent;
+      }
+
+      // Обработка клика на элементе в b-header__currency-menu
+      currencyType.addEventListener('click', function () {
+        // Установка выбранного значения в форме
+        selectElement.value = option.value;
+        // Обновление выбранного элемента в currencyNow
+        currencyNow.textContent = option.textContent;
+        default_form_orderby.submit();
+      });
+    });
+  }
+})();
