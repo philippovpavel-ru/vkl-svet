@@ -125,6 +125,7 @@ function vlksvet_wc_loop_add_to_cart_link($link)
   return $link;
 }
 
+// Пагинация по каталогу
 add_action('woocommerce_after_shop_loop', 'vlksvet_wc_pagination', 10);
 function vlksvet_wc_pagination()
 {

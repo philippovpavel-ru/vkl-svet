@@ -1,0 +1,14 @@
+{
+  "name": "snd/about",
+  "title": "About",
+  "description": "О нас",
+  "category": "snd-blocks",
+  "icon": "info",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-about.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

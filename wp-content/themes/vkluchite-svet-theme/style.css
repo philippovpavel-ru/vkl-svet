@@ -44,7 +44,10 @@
   font-size: 0;
 }
 
-.sd-card__cart.product_type_simple::before {
+.sd-card__cart.product_type_simple::before,
+.sd-popular .sd-card__cart::before
+ {
+  display: block !important;
   font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem);
 }
 

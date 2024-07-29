@@ -14,6 +14,7 @@ function vklsvet_enqueue_styles()
   wp_enqueue_style('main-style', VKLS_THEME_URL . '/assets/css/style.css', null, filemtime(VKLS_THEME_DIR . '/assets/css/style.css'));
   wp_enqueue_style('theme-style', get_stylesheet_uri(), null, filemtime(VKLS_THEME_DIR . '/style.css'));
 
+  wp_enqueue_script('ymap', 'https://api-maps.yandex.ru/2.1/?lang=ru_RU', null, VKLS_THEME_VERSION, true);
   wp_enqueue_script('wow', VKLS_THEME_URL . '/assets/js/wow.js', null, VKLS_THEME_VERSION, true);
   wp_enqueue_script('swiper', VKLS_THEME_URL . '/assets/js/swiper-bundle.min.js', null, '7.4.1', true);
   wp_enqueue_script('glightbox', VKLS_THEME_URL . '/assets/js/glightbox.min.js', null, VKLS_THEME_VERSION, true);
@@ -55,6 +56,8 @@ function vklsvet_theme_setup()
 
   add_editor_style([
     'assets/css/swiper-bundle.min.css',
+    'assets/css/style.css',
+    'style.css',
     'editor-style.css'
   ]);
 
@@ -79,6 +82,7 @@ require_once('includes/breadcrumbs.php');
 
 if (class_exists('acf_pro')) {
   require_once('includes/acf-functions.php');
+  require_once('includes/acf-blocks.php');
 }
 
 if (class_exists('WooCommerce')) {

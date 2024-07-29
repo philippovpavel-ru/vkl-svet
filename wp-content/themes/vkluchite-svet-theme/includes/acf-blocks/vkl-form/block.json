@@ -1,0 +1,14 @@
+{
+  "name": "snd/form",
+  "title": "Form",
+  "description": "Форма",
+  "category": "snd-blocks",
+  "icon": "email-alt2",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-form.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

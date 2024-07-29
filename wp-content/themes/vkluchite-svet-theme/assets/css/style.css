@@ -1244,9 +1244,18 @@ button:hover {
     display: none;
   }
 }
-.sd-about__description-box p {
+.sd-about__description-box .sd-about__description-text {
   max-width: 396px;
   font-size: clamp(0.938rem, 0.9rem + 0.19vw, 1.125rem);
+}
+.sd-about__description-box .sd-about__description-text p:not(:last-child) {
+  margin-bottom: 26px;
+}
+
+@media (max-width: 991px) {
+  .sd-about__description-box .sd-about__description-text {
+    max-width: 100%;
+  }
 }
 
 .sd-about__description-box_mob {

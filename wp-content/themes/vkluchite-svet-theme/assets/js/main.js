@@ -631,31 +631,41 @@ if (document.querySelector('.sd-card__favorite')) {
 }
 
 // карта
+(function () {
+  if (!document.getElementById("map")) return;
 
-if (document.querySelector("#map")) {
+  const map_wrapper = document.getElementById("map");
+  const coords = map_wrapper.getAttribute('data-coordinates');
+  const zoom = map_wrapper.getAttribute('data-zoom');
+  const address = map_wrapper.getAttribute('data-address');
+  const icon = map_wrapper.getAttribute('data-icon');
+
+  const coordArray = coords.split(',').map(Number);
+
   ymaps.ready(function () {
     var map = new ymaps.Map("map", {
-      center: [55.787427, 37.569512],
-      zoom: 14,
+      center: coordArray,
+      zoom: zoom,
       scroll: false
     });
 
     map.behaviors.disable('scrollZoom');
     var shop_2 = new ymaps.Placemark(
-      [55.787427, 37.569512],
+      coordArray,
       {
-        hintContent: 'Москва, ул. Новая Башиловка, 8'
+        hintContent: address
       },
       {
         iconLayout: 'default#image',
-        iconImageHref: 'img/baloon.svg',
+        iconImageHref: icon,
         iconImageSize: [48, 60],
         iconImageOffset: [-20, -50]
       }
     );
     map.geoObjects.add(shop_2);
   });
-}
+})();
+
 
 // Number-box +/-
 

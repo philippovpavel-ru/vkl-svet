@@ -181,54 +181,7 @@
   </div>
 </section>
 
-<section class="sd-about">
-  <div class="container">
-    <div class="sd-about__top">
-      <div class="sd-about__text-box">
-        <h2 class="wow animate__animated animate__fadeInLeft">О нас</h2>
-        <h3>Включите свет</h3>
-        <h4>&mdash;&nbsp;это бренд, который позволит вам создавать всевозможные сценарии освещения.
-          Мы&nbsp;не&nbsp;боимся смелых решений!</h4>
-        <div class="sd-about__description-box">
-          <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-circle.jpeg" alt="" class="wow animate__animated animate__fadeInLeft">
-          <p>
-            Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
-            в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
-            <br><br>
-            В&nbsp;нашем магазине вы&nbsp;найдёте широкий ассортимент продукции, которая может быть использована для
-            освещения различных помещений: это и&nbsp;линейка базового освещения, акцентные светильники, декоративная
-            подсветка, настольные лампы и&nbsp;торшеры.
-            <br><br>
-            Мы&nbsp;постоянно находимся в&nbsp;творческом поиске, для реализации новых проектов светового дизайна. Вся
-            наша продукция имеет сертификаты соответствия.
-          </p>
-        </div>
-      </div>
-      <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-big.jpeg" alt="" class="sd-about__img-big wow animate__animated animate__fadeInRight">
-      <div class="sd-about__description-box sd-about__description-box_mob">
-        <p>
-          Наши коллекции созданы для тех, кто ценит функциональность и&nbsp;красоту, всегда находясь
-          в&nbsp;неустанном поиске оригинальных решений для своего интерьера.
-          <br><br>
-          В&nbsp;нашем магазине вы&nbsp;найдёте широкий ассортимент продукции, которая может быть использована для
-          освещения различных помещений: это и&nbsp;линейка базового освещения, акцентные светильники, декоративная
-          подсветка, настольные лампы и&nbsp;торшеры.
-          <br><br>
-          Мы&nbsp;постоянно находимся в&nbsp;творческом поиске, для реализации новых проектов светового дизайна. Вся
-          наша продукция имеет сертификаты соответствия.
-        </p>
-      </div>
-    </div>
-    <div class="sd-about__bottom">
-      <img src="<?= VKLS_THEME_URL; ?>/assets/img/a-small.jpg" alt="" class=" wow animate__animated animate__fadeInUp">
-      <h5>
-        Мы&nbsp;делаем все возможное, <br>
-        чтобы ваш дом был всегда
-        <span>наполнен светом</span>
-      </h5>
-    </div>
-  </div>
-</section>
+
 
 <section class="sd-stage">
   <div class="container">
@@ -296,59 +249,6 @@
     </div>
   </div>
   <div class="swiper-scrollbar swiper-scrollbar-stage"></div>
-</section>
-
-
-<?php
-$options = [];
-if (function_exists('get_fields')) {
-  $options = get_fields('option');
-}
-?>
-<section class="sd-form">
-  <div class="sd-form__wrapper">
-    <div class="container">
-      <div class="sd-form__heading">
-        <h2 class="wow animate__animated animate__fadeInLeft">Заполните форму</h2>
-        <h3>или Свяжитесь с&nbsp;нами любым удобным способом, чтобы подобрать освещение для вашего проекта</h3>
-      </div>
-      <div class="sd-form__form-box">
-        <h4>Оставьте заявку</h4>
-        <h5>и&nbsp;мы&nbsp;перезвоним вам в&nbsp;ближайшее время</h5>
-
-        <?php echo do_shortcode('[contact-form-7 id="5b7fd5b"]'); ?>
-      </div>
-
-      <?php
-      $vk_url = isset($options['vk_url']) ? esc_url($options['vk_url']) : '';
-      $telegram_url = isset($options['telegram_url']) ? esc_url($options['telegram_url']) : '';
-      $whatsapp_url = isset($options['whatsapp_url']) ? esc_url($options['whatsapp_url']) : '';
-      $instagram_url = isset($options['instagram_url']) ? esc_url($options['instagram_url']) : '';
-
-      $is_true = $vk_url || $telegram_url || $whatsapp_url || $instagram_url;
-      ?>
-
-      <?php if ($is_true) : ?>
-        <div class="sd-form__social-box">
-          <?php if ($telegram_url) : ?>
-            <a href="<?php echo $telegram_url; ?>" target="_blank" title="Telegram" class="wow animate__animated animate__fadeInUp">tg</a>
-          <?php endif; ?>
-
-          <?php if ($whatsapp_url) : ?>
-            <a href="<?php echo $whatsapp_url; ?>" target="_blank" title="WhatsApp" class="wow animate__animated animate__fadeInUp">whats app</a>
-          <?php endif; ?>
-
-          <?php if ($instagram_url) : ?>
-            <a href="<?php echo $instagram_url; ?>" target="_blank" title="Instagram" class="wow animate__animated animate__fadeInUp">inst</a>
-          <?php endif; ?>
-
-          <?php if ($vk_url) : ?>
-            <a href="<?php echo $vk_url; ?>" target="_blank" title="VK" class="wow animate__animated animate__fadeInUp">vk</a>
-          <?php endif; ?>
-        </div>
-      <?php endif; ?>
-    </div>
-  </div>
 </section>
 
 <section class="sd-delivery">

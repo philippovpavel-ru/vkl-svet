@@ -1,0 +1,14 @@
+{
+  "name": "snd/contacts",
+  "title": "Contacts",
+  "description": "Контакты",
+  "category": "snd-blocks",
+  "icon": "email",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-contacts.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}
