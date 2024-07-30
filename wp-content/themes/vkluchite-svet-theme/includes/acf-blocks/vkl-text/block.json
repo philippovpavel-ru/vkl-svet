@@ -1,0 +1,15 @@
+{
+  "name": "snd/text",
+  "title": "Text",
+  "description": "Текст",
+  "category": "snd-blocks",
+  "icon": "editor-alignleft",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-text.php"
+  },
+  "supports": {
+    "anchor": true,
+    "jsx": true
+  }
+}

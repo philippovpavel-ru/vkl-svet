@@ -1,0 +1,15 @@
+{
+  "name": "snd/delivery",
+  "title": "Delivery",
+  "description": "Доставка",
+  "category": "snd-blocks",
+  "icon": "archive",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-delivery.php"
+  },
+  "supports": {
+    "anchor": true,
+    "jsx": true
+  }
+}

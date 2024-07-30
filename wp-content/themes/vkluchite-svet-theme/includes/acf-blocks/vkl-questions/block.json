@@ -1,0 +1,14 @@
+{
+  "name": "snd/questions",
+  "title": "Questions",
+  "description": "Вопросы и ответы",
+  "category": "snd-blocks",
+  "icon": "list-view",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-questions.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

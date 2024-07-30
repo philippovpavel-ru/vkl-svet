@@ -1,0 +1,14 @@
+{
+  "name": "snd/vacancy",
+  "title": "Vacancy",
+  "description": "Вакансии",
+  "category": "snd-blocks",
+  "icon": "groups",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-vacancy.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

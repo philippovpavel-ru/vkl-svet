@@ -1,0 +1,14 @@
+{
+  "name": "snd/wc-popular",
+  "title": "Popular",
+  "description": "Популярные товары",
+  "category": "snd-blocks",
+  "icon": "screenoptions",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-wc-popular.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

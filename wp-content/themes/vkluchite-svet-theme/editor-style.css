@@ -42,14 +42,6 @@ a,
   overflow: hidden;
 }
 
-.swiper-docs .swiper-slide {
-  max-width: 315px;
-}
-
-.swiper-docs .swiper-slide:not(:last-child) {
-  margin-right: 20px;
-}
-
 .mce-ico::before {
   font-family: dashicons !important;
 }
@@ -61,4 +53,8 @@ iframe {
 iframe[src*="yandex.ru"] {
   width: 100%;
   height: clamp(26.875rem, 23.7rem + 15.88vw, 42.75rem);
+}
+
+.sd-delivery ol li > * {
+  display: inline-block;
 }
