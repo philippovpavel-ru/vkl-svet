@@ -58,3 +58,7 @@ iframe[src*="yandex.ru"] {
 .sd-delivery ol li > * {
   display: inline-block;
 }
+
+.swiper-stage .swiper-slide {
+  max-width: 415px;
+}

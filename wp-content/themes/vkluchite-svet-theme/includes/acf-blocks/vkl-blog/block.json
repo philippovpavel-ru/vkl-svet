@@ -1,0 +1,14 @@
+{
+  "name": "snd/blog",
+  "title": "Blog",
+  "description": "Блог",
+  "category": "snd-blocks",
+  "icon": "admin-post",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-blog.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

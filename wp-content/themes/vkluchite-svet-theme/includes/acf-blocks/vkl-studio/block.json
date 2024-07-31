@@ -1,0 +1,14 @@
+{
+  "name": "snd/studio",
+  "title": "Studio",
+  "description": "Студия ссылка",
+  "category": "snd-blocks",
+  "icon": "admin-links",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-studio.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

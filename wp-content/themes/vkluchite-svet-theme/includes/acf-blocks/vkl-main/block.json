@@ -1,0 +1,14 @@
+{
+  "name": "snd/main",
+  "title": "Main",
+  "description": "Главная секция",
+  "category": "snd-blocks",
+  "icon": "cover-image",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-main.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

@@ -1,0 +1,14 @@
+{
+  "name": "snd/collections",
+  "title": "Collections",
+  "description": "Коллекции",
+  "category": "snd-blocks",
+  "icon": "align-right",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-collections.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

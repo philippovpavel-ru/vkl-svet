@@ -1,0 +1,14 @@
+{
+  "name": "snd/stage",
+  "title": "Stage",
+  "description": "Шаги",
+  "category": "snd-blocks",
+  "icon": "insert-after",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-stage.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

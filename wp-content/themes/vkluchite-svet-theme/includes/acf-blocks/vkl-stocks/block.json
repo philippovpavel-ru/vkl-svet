@@ -1,0 +1,14 @@
+{
+  "name": "snd/stocks",
+  "title": "Slider",
+  "description": "Слайдер",
+  "category": "snd-blocks",
+  "icon": "slides",
+  "acf": {
+    "mode": "preview",
+    "renderTemplate": "vkl-stocks.php"
+  },
+  "supports": {
+    "anchor": true
+  }
+}

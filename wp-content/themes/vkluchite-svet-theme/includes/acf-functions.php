@@ -527,3 +527,74 @@ add_action('acf/include_fields', function () {
     'show_in_rest' => 1,
   ));
 });
+
+// Fields for 'vklsvet_vacancy' post-type
+add_action('acf/include_fields', function () {
+  if (!function_exists('acf_add_local_field_group')) {
+    return;
+  }
+
+  acf_add_local_field_group(array(
+    'key' => 'group_66a91dd4eef22',
+    'title' => 'Настройки Вакансии',
+    'fields' => array(
+      array(
+        'key' => 'field_66a91dd5bbaf3',
+        'label' => 'Телефон "Записаться на собеседование"',
+        'name' => 'phone',
+        'aria-label' => '',
+        'type' => 'text',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'default_value' => '',
+        'maxlength' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+      ),
+      array(
+        'key' => 'field_66a91e0cbbaf4',
+        'label' => 'Email "Подать резюме на электронную почту"',
+        'name' => 'email',
+        'aria-label' => '',
+        'type' => 'email',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'default_value' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'vklsvet_vacancy',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'side',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'show_in_rest' => 0,
+  ));
+});
