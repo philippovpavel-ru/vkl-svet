@@ -21,12 +21,15 @@ function vlksvet_wc_catalog_header_end()
   echo '</div>';
 }
 
-// Загаловок категории
+// Заголовок категории
 add_action('woocommerce_before_shop_loop', 'vlksvet_wc_catalog_header_title', 20);
 function vlksvet_wc_catalog_header_title()
 {
   if (is_shop()) {
-    echo '<span></span>';
+    $shop_page_id = get_option('woocommerce_shop_page_id');
+    $shop_page_title = get_the_title($shop_page_id);
+
+    echo "<h2>{$shop_page_title}</h2>";
     return;
   }
 

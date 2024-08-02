@@ -88,4 +88,6 @@ if (class_exists('acf_pro')) {
 
 if (class_exists('WooCommerce')) {
   require_once('includes/woocommerce-functions.php');
+  require_once('includes/widgets/wc-categories.php');
+  require_once('includes/widgets/wc-filter.php');
 }

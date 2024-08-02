@@ -1,0 +1,71 @@
+.option_row {
+	padding-bottom: 15px;
+	margin-top: 15px;
+}
+.option_row:not(:last-child){
+	border-bottom: 1px solid #eeeeee;
+}
+.option_row label{
+	font-weight: bold;
+}
+.option_row input[type="url"],
+.option_row input[type="text"]{
+	width: 100%;
+	margin-top: 10px;
+}
+
+#menu-dashboard .update-plugins,
+#wp-version-message .button {
+	display: none;
+}
+
+.filter_widget .input-text{
+	position: relative;
+}
+
+.filter_widget .input-text span{
+	position: absolute;
+	background-color: #fff;
+	top: -12px;
+	left: 15px;
+	font-size: 10px;
+	padding: 0 5px;
+}
+
+.snd-wc-filter-row {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	padding: 8px 0;
+	margin: 5px 0 !important;
+}
+
+.snd-wc-filter-row {
+	border-bottom: 1px solid #f0f0f0;
+}
+
+.archive_page_filter{
+	margin: 15px 0;
+}
+
+.archive_page_filter-filters{
+	margin-top: 15px;
+}
+
+.filter_widget summary{
+	cursor: pointer;
+	background-color: #fbfbfb;
+	padding: 15px 0 15px 15px;
+	margin: 0 0 1px 0 !important;
+	text-transform: uppercase;
+}
+
+.filter_widget details:nth-child(even) summary{
+	background-color: #fdfdfd;
+}
+
+.snd-wc-filter-labels-list {
+	display: flex;
+	flex-direction: column;
+	gap: 5px;
+}
