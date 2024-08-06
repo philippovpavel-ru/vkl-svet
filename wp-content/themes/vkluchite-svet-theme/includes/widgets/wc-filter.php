@@ -100,26 +100,14 @@ class SND_WC_Filter_Widget extends WP_Widget
 				$attr_name  = esc_attr($attribute->attribute_name);
 				$attr_label = esc_attr($attribute->attribute_label);
 
-				if (!empty($instance['snd-wc-filter-' . $attr_name . '-checkbox'])) {
-					$attr_checkbox = $instance['snd-wc-filter-' . $attr_name . '-checkbox'];
-				}
-
-				if (!empty($instance['snd-wc-filter-' . $attr_name . '-show-list'])) {
-					$attr_show_list = $instance['snd-wc-filter-' . $attr_name . '-show-list'];
-				}
-
-				if (!empty($instance['snd-wc-filter-' . $attr_name . '-title'])) {
-					$attr_title = $instance['snd-wc-filter-' . $attr_name . '-title'];
-				}
-
 				$attr_checkbox_name = $this->get_field_name('snd-wc-filter-' . $attr_name . '-checkbox');
-				$attr_checkbox_val = !empty($attr_checkbox) ? 'checked' : '';
+				$attr_checkbox_val = !empty($instance['snd-wc-filter-' . $attr_name . '-checkbox']) ? 'checked' : '';
 
 				$attr_show_list_name = $this->get_field_name('snd-wc-filter-' . $attr_name . '-show-list');
-				$attr_show_list_val = !empty($attr_show_list) ? 'checked' : '';
+				$attr_show_list_val = !empty($instance['snd-wc-filter-' . $attr_name . '-show-list']) ? 'checked' : '';
 
 				$attr_title_name = $this->get_field_name('snd-wc-filter-' . $attr_name . '-title');
-				$attr_title_val = !empty($attr_title) ? esc_attr($attr_title) : '';
+				$attr_title_val = !empty($instance['snd-wc-filter-' . $attr_name . '-title']) ? esc_attr($instance['snd-wc-filter-' . $attr_name . '-title']) : '';
 
 				$filter_attrs .= <<<FILTER_ATTR
 				<div class="snd-wc-filter-row">
@@ -216,7 +204,7 @@ class SND_WC_Filter_Widget extends WP_Widget
 			$instance['snd-wc-filter-' . $attr_name . '-checkbox'] = !empty($new_instance['snd-wc-filter-' . $attr_name . '-checkbox']) ? strip_tags($new_instance['snd-wc-filter-' . $attr_name . '-checkbox']) : '';
 
 			// $instance[ 'snd-wc-filter-' . $attr_name . '-show-list' ]
-			$instance['snd-wc-filter-' . $attr_name . '-show-list'] = !empty($new_instance['snd-wc-filter-' . $attr_name . '-show-list']) ? strip_tags($new_instance['snd-wc-filter-' . $attr_name . '-show-list']) : '';
+			$instance['snd-wc-filter-' . $attr_name . '-show-list'] = !empty($new_instance['snd-wc-filter-' . $attr_name . '-show-list']) ? '1' : '';
 
 			// $instance[ 'snd-wc-filter-' . $attr_name . '-title' ]
 			$instance['snd-wc-filter-' . $attr_name . '-title'] = !empty($new_instance['snd-wc-filter-' . $attr_name . '-title']) ? strip_tags($new_instance['snd-wc-filter-' . $attr_name . '-title']) : '';
@@ -508,7 +496,7 @@ class SND_WC_Filter_Widget extends WP_Widget
 					break;
 				case 'label':
 					$return_class = 'categ-1-categ__grid-check details';
-					$labels_before = '<div class="sd-card-page__options sub-menu">';
+					$labels_before = "<div class=\"sd-card-page__options sub-menu $details_classes\">";
 					$labels_after = '</div>';
 					break;
 				default:

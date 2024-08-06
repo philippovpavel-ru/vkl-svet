@@ -15,8 +15,8 @@ if (!empty($block['align'])) {
   $class_name .= ' align' . $block['align'];
 }
 
-if ( !class_exists('WooCommerce') ) {
-  if ( is_admin() ) {
+if (!class_exists('WooCommerce')) {
+  if (is_admin()) {
     echo '<p>Для работы требуется активировать плагин "WooCommerce"</p>';
   }
 
@@ -27,6 +27,7 @@ if ( !class_exists('WooCommerce') ) {
 $get_fields = get_fields();
 $title = !empty($get_fields['title']) ? esc_html($get_fields['title']) : '';
 $is_animate = !empty($get_fields['animate']) ? (bool)$get_fields['animate'] : false;
+$select_products = !empty($get_fields['select_products']) ? $get_fields['select_products'] : [];
 
 $fadeInLeft_animated = $is_animate ? 'wow animate__animated animate__fadeInLeft' : '';
 ?>
@@ -39,78 +40,12 @@ $fadeInLeft_animated = $is_animate ? 'wow animate__animated animate__fadeInLeft'
     }
     ?>
 
-    <div class="swiper swiper-pop">
-      <div class="swiper-wrapper">
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c1.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-            в кухню и гостиную</a>
-          <a href="card.html" class="sd-card__price">44 120 ₽</a>
-          <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-          <a class="sd-card__cart"></a>
-        </div>
+    <?php
+    if ($select_products) {
+      $select_products_string = join(",", array_unique($select_products));
 
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c2.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">
-            Люстра эксклюзивная ручная работа Aqua luxury brass
-          </a>
-          <a href="card.html" class="sd-card__price">135 000 — 250 000р.</a>
-          <a class="sd-card__cart"></a>
-        </div>
-
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c3.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">Настенный светильник Aqua Copper</a>
-          <a href="card.html" class="sd-card__price">19 300 — 22 300 ₽</a>
-          <a href="card.html" class="sd-card__old-price">119 300 — 222 300 ₽</a>
-          <a class="sd-card__cart"></a>
-        </div>
-
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c1.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">Настенный светильник Voa Porch Copper silumin</a>
-          <a href="card.html" class="sd-card__price">16 500 ₽</a>
-          <a href="card.html" class="sd-card__old-price">44 120 ₽</a>
-          <a class="sd-card__cart"></a>
-        </div>
-
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c2.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-            в кухню и гостиную</a>
-          <a href="card.html" class="sd-card__price">44 120 ₽</a>
-          <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-          <a class="sd-card__cart"></a>
-        </div>
-
-        <div class="swiper-slide sd-card">
-          <a class="sd-card__favorite"></a>
-          <a href="card.html" class="sd-card__img">
-            <img src="img/c3.jpeg" alt="">
-          </a>
-          <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-            в кухню и гостиную</a>
-          <a href="card.html" class="sd-card__price">44 120 ₽</a>
-          <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-          <a class="sd-card__cart"></a>
-        </div>
-      </div>
-    </div>
+      echo do_shortcode("[products ids='$select_products_string' class='swiper swiper-pop']");
+    }
+    ?>
   </div>
 </section>

@@ -25,71 +25,22 @@
 </main>
 
 <?php if (class_exists('WooCommerce')) : ?>
+  <?php
+  $fields = get_fields();
+  $product_title = !empty($fields['product_title']) ? esc_html($fields['product_title']) : 'Товары по теме статьи';
+  $select_products = !empty($fields['select_products']) ? $fields['select_products'] : [];
+  ?>
   <section class="sd-popular">
     <div class="container">
-      <h2>Товары по теме статьи</h2>
-      <div class="swiper swiper-pop">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c1.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-              в кухню и гостиную</a>
-            <a href="card.html" class="sd-card__price">44 120 ₽</a>
-            <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-            <a class="sd-card__cart"></a>
-          </div>
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c2.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">
-              Люстра эксклюзивная ручная работа Aqua luxury brass
-            </a>
-            <a href="card.html" class="sd-card__price">135 000 — 250 000р.</a>
-            <a class="sd-card__cart"></a>
-          </div>
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c3.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">Настенный светильник Aqua Copper</a>
-            <a href="card.html" class="sd-card__price">19 300 — 22 300 ₽</a>
-            <a href="card.html" class="sd-card__old-price">119 300 — 222 300 ₽</a>
-            <a class="sd-card__cart"></a>
-          </div>
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c1.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">Настенный светильник Voa Porch Copper silumin</a>
-            <a href="card.html" class="sd-card__price">16 500 ₽</a>
-            <a href="card.html" class="sd-card__old-price">44 120 ₽</a>
-            <a class="sd-card__cart"></a>
-          </div>
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c2.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-              в кухню и гостиную</a>
-            <a href="card.html" class="sd-card__price">44 120 ₽</a>
-            <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-            <a class="sd-card__cart"></a>
-          </div>
-          <div class="swiper-slide sd-card">
-            <a href="card.html" class="sd-card__img">
-              <img src="img/c3.jpeg" alt="">
-            </a>
-            <a href="card.html" class="sd-card__name">Люстра потолочная светодиодная
-              в кухню и гостиную</a>
-            <a href="card.html" class="sd-card__price">44 120 ₽</a>
-            <a href="card.html" class="sd-card__old-price">144 120 ₽</a>
-            <a class="sd-card__cart"></a>
-          </div>
-        </div>
-      </div>
+      <h2><?php echo $product_title; ?></h2>
+
+      <?php
+      if ($select_products) {
+        $select_products_string = join(",", array_unique($select_products));
+
+        echo do_shortcode("[products ids='$select_products_string' class='swiper swiper-pop']");
+      }
+      ?>
     </div>
   </section>
 <?php endif; ?>

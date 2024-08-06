@@ -53,7 +53,7 @@
 
 .sd-card__cart:not(.product_type_simple)::before,
 .added_to_cart.wc-forward {
-  display: none;
+  display: none !important;
 }
 
 .sd-card {

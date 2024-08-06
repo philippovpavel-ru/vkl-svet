@@ -598,3 +598,182 @@ add_action('acf/include_fields', function () {
     'show_in_rest' => 0,
   ));
 });
+
+// Fields for WooCommerce in block and post
+add_action('acf/include_fields', function () {
+  if ( ! ( function_exists('acf_add_local_field_group') && class_exists('WooCommerce') ) ) {
+    return;
+  }
+
+  acf_add_local_field_group(array(
+    'key' => 'group_66b12e4c953d6',
+    'title' => 'Настройки Popular',
+    'fields' => array(
+      array(
+        'key' => 'field_66b12e4dc29dd',
+        'label' => 'Анимация?',
+        'name' => 'animate',
+        'aria-label' => '',
+        'type' => 'true_false',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'message' => '',
+        'default_value' => 0,
+        'ui_on_text' => '',
+        'ui_off_text' => '',
+        'ui' => 1,
+      ),
+      array(
+        'key' => 'field_66b12e76c29de',
+        'label' => 'Заголовок',
+        'name' => 'title',
+        'aria-label' => '',
+        'type' => 'text',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'default_value' => 'Заголовок',
+        'maxlength' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+      ),
+      array(
+        'key' => 'field_66b12e85c29df',
+        'label' => 'Выбрать товары',
+        'name' => 'select_products',
+        'aria-label' => '',
+        'type' => 'post_object',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'post_type' => array(
+          0 => 'product',
+        ),
+        'post_status' => array(
+          0 => 'publish',
+        ),
+        'taxonomy' => array(
+          0 => 'product_type:simple',
+          1 => 'product_type:variable',
+        ),
+        'return_format' => 'id',
+        'multiple' => 1,
+        'allow_null' => 0,
+        'bidirectional' => 0,
+        'ui' => 1,
+        'bidirectional_target' => array(),
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'block',
+          'operator' => '==',
+          'value' => 'snd/wc-popular',
+        ),
+      ),
+    ),
+    'menu_order' => 0,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'show_in_rest' => 1,
+  ));
+
+  acf_add_local_field_group(array(
+    'key' => 'group_66b204dcabc71',
+    'title' => 'Товары по теме статьи',
+    'fields' => array(
+      array(
+        'key' => 'field_66b204dcb64a1',
+        'label' => 'Заголовок',
+        'name' => 'product_title',
+        'aria-label' => '',
+        'type' => 'text',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'default_value' => 'Заголовок',
+        'maxlength' => '',
+        'placeholder' => '',
+        'prepend' => '',
+        'append' => '',
+      ),
+      array(
+        'key' => 'field_66b204dcba0fc',
+        'label' => 'Выбрать товары',
+        'name' => 'select_products',
+        'aria-label' => '',
+        'type' => 'post_object',
+        'instructions' => '',
+        'required' => 0,
+        'conditional_logic' => 0,
+        'wrapper' => array(
+          'width' => '',
+          'class' => '',
+          'id' => '',
+        ),
+        'post_type' => array(
+          0 => 'product',
+        ),
+        'post_status' => array(
+          0 => 'publish',
+        ),
+        'taxonomy' => array(
+          0 => 'product_type:simple',
+          1 => 'product_type:variable',
+        ),
+        'return_format' => 'id',
+        'multiple' => 1,
+        'allow_null' => 0,
+        'bidirectional' => 0,
+        'ui' => 1,
+        'bidirectional_target' => array(),
+      ),
+    ),
+    'location' => array(
+      array(
+        array(
+          'param' => 'post_type',
+          'operator' => '==',
+          'value' => 'post',
+        ),
+      ),
+    ),
+    'menu_order' => 10,
+    'position' => 'normal',
+    'style' => 'default',
+    'label_placement' => 'top',
+    'instruction_placement' => 'label',
+    'hide_on_screen' => '',
+    'active' => true,
+    'description' => '',
+    'show_in_rest' => 1,
+  ));
+});

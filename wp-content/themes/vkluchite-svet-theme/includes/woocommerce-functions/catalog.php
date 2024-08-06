@@ -66,8 +66,10 @@ function vlksvet_wc_catalog_header_filter_button()
 add_filter('woocommerce_post_class', 'vlksvet_wc_catalog_loop_item_class', 10);
 function vlksvet_wc_catalog_loop_item_class($classes)
 {
-  if (is_shop() || is_product_taxonomy()) {
-    $classes[] = 'sd-card';
+  $classes[] = 'sd-card';
+
+  if ( !(is_shop() || is_product_taxonomy()) ) {
+    $classes[] = 'swiper-slide';
   }
 
   return $classes;

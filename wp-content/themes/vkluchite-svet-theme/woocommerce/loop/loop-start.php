@@ -2,6 +2,11 @@
 if (!defined('ABSPATH')) {
 	exit;
 }
+
+$class = 'swiper-wrapper';
+if (is_shop() || is_product_taxonomy()) {
+	$class = 'sd-catalog__catalog-grid';
+}
 ?>
 
-<ul class="sd-catalog__catalog-grid products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?>">
+<ul class="products columns-<?php echo esc_attr(wc_get_loop_prop('columns')); ?> <?php echo $class; ?>">
