@@ -8,9 +8,9 @@ function vklsvet_wc_theme_setup()
   add_theme_support(
     'woocommerce',
     array(
-      'thumbnail_image_width' => 315,
-      'gallery_thumbnail_image_width' => 200,
-      'single_image_width'    => 958,
+      'thumbnail_image_width' => 910,
+      'gallery_thumbnail_image_width' => 100,
+      'single_image_width'    => 950,
       'product_grid'          => array(
         'default_rows'    => 2,
         'min_rows'        => 1,
@@ -20,6 +20,14 @@ function vklsvet_wc_theme_setup()
       ),
     )
   );
+}
+
+add_filter('use_block_editor_for_post_type', 'vklsvet_wc_disable_gutenberg', 10, 2);
+function vklsvet_wc_disable_gutenberg($current_status, $post_type)
+{
+  $disabled_post_types = ['product'];
+
+  return !in_array($post_type, $disabled_post_types, true);
 }
 
 // Фрагмент для корзины
@@ -46,6 +54,7 @@ function vklsvet_wc_cart_link( $class = 'sd-header__cart-button', $show_count = 
 }
 
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/catalog.php'; // Каталог
-require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/widgets_sidebars.php'; // Подключение сайдбаров
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/content-single-product.php'; // Карточка товара
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/register-sidebar-shop.php'; // Подключение сайдбаров
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/products.php'; // Работа с товарами
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/checkout.php'; // Работа с оформлением заказа
