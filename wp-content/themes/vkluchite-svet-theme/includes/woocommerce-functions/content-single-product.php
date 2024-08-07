@@ -95,51 +95,104 @@ function vlksvet_wc_tabs()
 {
   global $product;
 
-  $content = wp_kses_post($product->get_description());
+  $product_id = $product->get_id();
+
+  $tabs_array = [
+    [
+      'display' => vklsvet_wc_tabs_get_attributes($product_id) ? true : false,
+      'name' => 'Характеристики',
+      'content' => vklsvet_wc_tabs_get_attributes($product_id)
+    ],
+    [
+      'display' => $product->get_description() ? true : false,
+      'name' => 'Описание',
+      'content' => wp_kses_post($product->get_description())
+    ]
+  ];
+
+  $nav_tabs = '';
+  $box_tabs = '';
+  $index = 0;
+
+  foreach ($tabs_array as $key => $tab_row) {
+    if ( ! $tab_row['display'] ) continue;
+
+    $active_class = $index === 0 ? 'active' : '';
+
+    $nav_tabs .= "<a class=\"b-tabs__nav-button $active_class\">{$tab_row['name']}</a>";
+    $box_tabs .= "<div class=\"b-tabs__box $active_class\">{$tab_row['content']}</div>";
+
+    $index++;
+  }
 
   echo <<<TABS
   <div class="sd-card-page__specifications">
-    <nav class="b-tabs__nav">
-      <a class="b-tabs__nav-button active">
-        Характеристики
-      </a>
-      <a class="b-tabs__nav-button">
-        Описание
-      </a>
-    </nav>
-
-    <div class="b-tabs__boxes">
-      <div class="b-tabs__box active">
-        <div class="b-tabs__box-table">
-          <div class="b-tabs__box-row">
-            <p>Коллекция</p>
-            <p>Aqua Waterfall</p>
-          </div>
-          <div class="b-tabs__box-row">
-            <p>Цвет плафона</p>
-            <p>Прозрачный</p>
-          </div>
-          <div class="b-tabs__box-row">
-            <p>Материал корпуса</p>
-            <p>Натуральная латунь</p>
-          </div>
-          <div class="b-tabs__box-row">
-            <p>Материал абажура</p>
-            <p>Стекло ручной работы</p>
-          </div>
-          <div class="b-tabs__box-row">
-            <p>Место назначения</p>
-            <p>Гостиная, детская, ресторан, спальня</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="b-tabs__box">
-        <div class="b-tabs__box-text">$content</div>
-      </div>
-    </div>
+    <nav class="b-tabs__nav">$nav_tabs</nav>
+    <div class="b-tabs__boxes">$box_tabs</div>
   </div>
   TABS;
+}
+
+function vklsvet_wc_tabs_get_attributes( $product_id = '' )
+{
+  if (!$product_id) return;
+
+  $product = wc_get_product($product_id);
+  global $product;
+
+  $rows = '';
+
+  $sku = esc_attr($product->get_sku());
+  if ($sku) {
+    $rows .= "<div class=\"b-tabs__box-row\"><p>Артикул</p><p>{$sku}</p></div>";
+  }
+
+  $categories = wc_get_product_category_list($product_id, ', ');
+  if ($categories) {
+    $rows .= "<div class=\"b-tabs__box-row\"><p>Категория</p><p>{$categories}</p></div>";
+  }
+
+  $weight = $product->get_weight();
+  if ($weight) {
+    $weight_unit = get_option('woocommerce_weight_unit');
+    $weight_unit = ($weight_unit === 'kg' ? 'кг' : $weight_unit);
+
+    $rows .= "<div class=\"b-tabs__box-row\"><p>Вес</p><p>{$weight} {$weight_unit}</p></div>";
+  }
+
+  $height = $product->get_height();
+  $width = $product->get_width();
+  $length = $product->get_length();
+  $dimensions = ($height && $width && $length ? "{$length}x{$width}x{$height}" : '');
+
+  if ($dimensions) {
+    $dimensions_unit = get_option('woocommerce_dimension_unit');
+    $dimensions_unit = ($dimensions_unit === 'cm' ? 'см' : $dimensions_unit);
+
+    $rows .= "<div class=\"b-tabs__box-row\"><p>Размер</p><p>{$dimensions} {$dimensions_unit}</p></div>";
+  }
+
+  if ( $product->has_attributes() ) {
+    $attributes = $product->get_attributes();
+    foreach ($attributes as $attribute) {
+      if ($attribute['id'] === 0) {
+        $attr_label  = esc_html($attribute['name']);
+        $attr_values = join(', ', $attribute['options']);
+      } else {
+        $attr_name = esc_html($attribute->get_name());
+        $excludeAttrs = [];
+  
+        if (in_array($attr_name, $excludeAttrs)) continue;
+  
+        $attr_label  = esc_html(wc_attribute_label($attr_name));
+        $attr_values = join(', ', wp_get_post_terms($product_id, $attr_name, array('fields' => 'names')));
+      }
+  
+      $rows .= "<div class=\"b-tabs__box-row\"><p>$attr_label</p><p>$attr_values</p></div>";
+    }
+  }
+
+  return "<div class=\"b-tabs__box-table\">$rows</div>";
 }
 
 // Меняем текст кнопки
@@ -151,4 +204,29 @@ function vlksvet_wc_single_product_btn_text($text)
 
   $text = $price;
   return $text;
+}
+
+// JS для карточки
+add_action('wp_footer', 'vklsvet_wc_single_product_js');
+function vklsvet_wc_single_product_js()
+{
+  if ( ! ( is_product() && is_single() ) ) return;
+
+  global $product;
+
+  $script = <<<SCRIPT
+  <script>
+    jQuery(document).ready(function ($) {
+      $(document).on('found_variation', '.sd-card-page__text form.cart', function (event, variation) {
+        const button_to_cart = $('.sd-card-page__text .single_add_to_cart_button');
+        const description_block = $('.sd-card-page__text .b-tabs__box-text');
+
+        button_to_cart.html(variation.price_html);
+        description_block.html(variation.variation_description);
+      });
+    });
+  </script>
+  SCRIPT;
+
+  echo $script;
 }

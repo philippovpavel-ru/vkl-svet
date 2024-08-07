@@ -228,11 +228,15 @@
   width: 100%;
 }
 
-.woocommerce-variation {
+.sd-card-page__text .woocommerce-variation {
   display: none !important;
 }
 
-button[type="submit"] {
+.sd-card-page__text button[type="submit"] * {
+  color: rgb(255, 255, 255);
+}
+
+.sd-card-page__text button[type="submit"] {
   color: rgb(255, 255, 255);
   font-size: clamp(0.875rem, 0.825rem + 0.25vw, 1.125rem);
   padding: 6px 12px;
@@ -247,19 +251,35 @@ button[type="submit"] {
   margin-top: auto;
 }
 
-button[type="submit"]::before {
+.sd-card-page__text button[type="submit"]::before {
   content: "В корзину";
   margin-right: 10px;
 }
 
-.sd-card-page__favorite {
+.sd-card-page__text button[type="submit"] .price {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  flex-direction: row-reverse;
+  align-items: center;
+}
+
+.sd-card-page__text button[type="submit"] .price del {
+  font-size: clamp(0.800rem, 0.800rem + 0.25vw, 1rem);
+}
+
+.sd-card-page__text button[type="submit"] .price ins {
+  text-decoration: none;
+}
+
+.sd-card-page__text .sd-card-page__favorite {
   margin-top: 15px;
 }
 
-.sd-card-page__specifications {
+.sd-card-page__text .sd-card-page__specifications {
   margin-top: clamp(1.875rem, 1.125rem + 3.75vw, 5.625rem);
 }
 
-.b-tabs__box-text p:not(:last-child){
+.sd-card-page__text .b-tabs__box-text p:not(:last-child){
   margin-bottom: 15px;
 }
