@@ -8,6 +8,7 @@ remove_action('woocommerce_single_product_summary', 'woocommerce_template_single
 remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_sharing', 50);
 
 remove_action('woocommerce_after_single_product_summary', 'woocommerce_output_product_data_tabs');
+remove_action('woocommerce_after_single_product_summary', 'woocommerce_upsell_display', 15);
 
 add_action('woocommerce_before_single_product', function () {
   echo '<main class="sd-card-page">';
@@ -80,13 +81,6 @@ function vlksvet_wc_sku()
   if ($sku) {
     echo "<p class='sd-card-page__article'>Артикул: $sku</p>";
   }
-}
-
-// Favorite button
-add_action('woocommerce_single_product_summary', 'vlksvet_wc_favorite', 35);
-function vlksvet_wc_favorite()
-{
-  echo '<a class="sd-card-page__favorite"></a>';
 }
 
 // Tabs
@@ -203,7 +197,7 @@ function vlksvet_wc_single_product_btn_text($text)
   $price = strip_tags( $product->get_price_html() );
 
   $text = $price;
-  return $text;
+  return '';
 }
 
 // JS для карточки
@@ -213,9 +207,10 @@ function vklsvet_wc_single_product_js()
   if ( ! ( is_product() && is_single() ) ) return;
 
   global $product;
+  $price = $product->get_price_html();
 
-  $script = <<<SCRIPT
-  <script>
+  $script =
+  "<script>
     jQuery(document).ready(function ($) {
       $(document).on('found_variation', '.sd-card-page__text form.cart', function (event, variation) {
         const button_to_cart = $('.sd-card-page__text .single_add_to_cart_button');
@@ -224,9 +219,13 @@ function vklsvet_wc_single_product_js()
         button_to_cart.html(variation.price_html);
         description_block.html(variation.variation_description);
       });
+
+      const button_to_cart = $('.sd-card-page__text .single_add_to_cart_button');
+      button_to_cart.html('<div class=\"price\">$price</div>');
     });
-  </script>
-  SCRIPT;
+
+  </script>"
+  ;
 
   echo $script;
 }

@@ -3,7 +3,12 @@ if (!defined('ABSPATH')) {
   exit;
 }
 
-if ($related_products) : ?>
+global $product;
+$upsells = wc_get_related_products($product->get_id(), $posts_per_page) ?: [];
+
+shuffle($upsells);
+
+if ($upsells) : ?>
   <section class="related products sd-popular">
     <div class="container">
       <?php
@@ -17,10 +22,10 @@ if ($related_products) : ?>
       <div class="swiper swiper-pop">
         <?php woocommerce_product_loop_start(); ?>
 
-        <?php foreach ($related_products as $related_product) : ?>
+        <?php foreach ($upsells as $upsell_id) : ?>
 
           <?php
-          $post_object = get_post($related_product->get_id());
+          $post_object = get_post($upsell_id);
 
           setup_postdata($GLOBALS['post'] = &$post_object); // phpcs:ignore WordPress.WP.GlobalVariablesOverride.Prohibited, Squiz.PHP.DisallowMultipleAssignments.Found
 

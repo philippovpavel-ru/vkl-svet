@@ -55,6 +55,9 @@ function vklsvet_wc_cart_link( $class = 'sd-header__cart-button', $show_count = 
 
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/catalog.php'; // Каталог
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/content-single-product.php'; // Карточка товара
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/cart.php'; // Работа с корзиной
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/checkout.php'; // Работа с оформлением заказа
+
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/register-sidebar-shop.php'; // Подключение сайдбаров
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/products.php'; // Работа с товарами
-require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/checkout.php'; // Работа с оформлением заказа
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/favorite.php'; // Избранное

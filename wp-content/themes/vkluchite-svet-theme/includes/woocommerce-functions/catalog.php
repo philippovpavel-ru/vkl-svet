@@ -75,13 +75,6 @@ function vlksvet_wc_catalog_loop_item_class($classes)
   return $classes;
 }
 
-// Кнопка добавления в избранное
-add_action('woocommerce_before_shop_loop_item', 'vlksvet_wc_loop_item_favorite_button', 5);
-function vlksvet_wc_loop_item_favorite_button()
-{
-  echo '<a class="sd-card__favorite"></a>';
-}
-
 // Обертка для картинки START
 add_action('woocommerce_before_shop_loop_item_title', 'vlksvet_wc_loop_item_link_wrapper_start', 5);
 function vlksvet_wc_loop_item_link_wrapper_start()

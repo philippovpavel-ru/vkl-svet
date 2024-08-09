@@ -668,51 +668,48 @@ if (document.querySelector('.sd-card__favorite')) {
 
 
 // Number-box +/-
+// const plus = document.querySelectorAll(".number-plus");
+// const minus = document.querySelectorAll(".number-minus");
 
-const plus = document.querySelectorAll(".number-plus");
-const minus = document.querySelectorAll(".number-minus");
+// for (let i = 0; i < plus.length; i++) {
+//   plus[i].addEventListener("click", function() {
+//     let box = this.parentNode;
+//     let input = box.querySelector(".input-small");
+//     input.stepUp();
+//     input.dispatchEvent(new Event('input'));
+//   });
+// }
 
-plus.forEach((b) => {
-  b.addEventListener("click", () => {
-    let box = b.parentNode;
-    let input = box.querySelector(".input-small");
-    input.stepUp();
-    $(input).trigger("input");
-  }
-  );
-});
-
-minus.forEach((b) => {
-  b.addEventListener("click", () => {
-    let box = b.parentNode;
-    let input = box.querySelector(".input-small");
-    input.stepDown();
-    $(input).trigger("input");
-  }
-  );
-});
+// for (let i = 0; i < minus.length; i++) {
+//   minus[i].addEventListener("click", function() {
+//     let box = this.parentNode;
+//     let input = box.querySelector(".input-small");
+//     input.stepDown();
+//     input.dispatchEvent(new Event('input'));
+//   });
+// }
 
 // кнопка "Выбрать всё" в корзине
-if (document.querySelector('.checkbox-cart-all')) {
-  var checkboxAll = document.querySelector(".checkbox-cart-all");
-  var checkbox = document.querySelectorAll(".checkbox-cart");
+// if (document.querySelector('.checkbox-cart-all')) {
+//   var checkboxAll = document.querySelector(".checkbox-cart-all");
+//   var checkbox = document.querySelectorAll(".checkbox-cart");
 
-  checkboxAll.addEventListener('click', () => {
-    checkFluency()
-  })
+//   checkboxAll.addEventListener('click', () => {
+//     checkFluency()
+//   })
 
-  function checkFluency() {
-    if (checkboxAll.checked != true) {
-      checkbox.forEach((item) => {
-        item.checked = false;
-      })
-    } else {
-      checkbox.forEach((item) => {
-        item.checked = true;
-      })
-    }
-  }
-}
+//   function checkFluency() {
+//     if (checkboxAll.checked != true) {
+//       checkbox.forEach((item) => {
+//         item.checked = false;
+//       })
+//     } else {
+//       checkbox.forEach((item) => {
+//         item.checked = true;
+//       })
+//     }
+//   }
+// }
 
 // анимация
 if (document.querySelector('.wow')) {
@@ -774,4 +771,82 @@ if (document.querySelector('.wow')) {
       });
     });
   }
+})();
+
+// корзина
+(function () {
+  function dispatchQuantityChangeEvent() {
+    const updateCartButton = document.querySelector('[name="update_cart"]');
+    if (updateCartButton) {
+      updateCartButton.removeAttribute('disabled');
+      updateCartButton.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+    }
+  }
+
+  document.body.addEventListener('click', function (event) {
+    const target = event.target;
+
+    if (target.matches('button.number-plus, button.number-minus')) {
+      const qty = target.parentElement.querySelector('input');
+      const val = parseInt(qty.value);
+      const min = parseInt(qty.getAttribute('min'));
+      const max = parseInt(qty.getAttribute('max'));
+      const step = parseInt(qty.getAttribute('step'));
+
+      if (target.classList.contains('number-plus')) {
+        qty.value = max && max <= val ? max : val + step;
+      } else {
+        qty.value = min && min >= val ? min : val > 1 ? val - step : 1;
+      }
+
+      dispatchQuantityChangeEvent();
+    }
+
+    if (target.classList.contains('number-plus') || target.classList.contains('number-minus')) {
+      dispatchQuantityChangeEvent();
+    }
+
+    if (target.id === 'remove-selected-btn') {
+      const checkedCheckboxes = document.querySelectorAll('.checkbox-cart:checked');
+
+      checkedCheckboxes.forEach(function (checkbox) {
+        const cartItem = checkbox.closest('.woocommerce-cart-form__cart-item');
+        if (!cartItem) return;
+
+        const qtys = cartItem.querySelectorAll('.qty');
+        if (!qtys) return;
+
+        qtys.forEach(function (qty) {
+          qty.value = 0;
+        })
+      });
+
+      setTimeout(() => {
+        dispatchQuantityChangeEvent();
+      }, 300);
+    }
+  });
+
+  document.body.addEventListener('change', function (event) {
+    const target = event.target;
+
+    if (target.classList.contains('qty')) {
+      dispatchQuantityChangeEvent();
+    }
+
+    if (target.classList.contains('checkbox-cart-all')) {
+      const checkboxAll = document.querySelector(".checkbox-cart-all");
+      const checkboxes = document.querySelectorAll(".checkbox-cart");
+
+      if (checkboxAll.checked != true) {
+        checkboxes.forEach((item) => {
+          item.checked = false;
+        })
+      } else {
+        checkboxes.forEach((item) => {
+          item.checked = true;
+        })
+      }
+    }
+  });
 })();
