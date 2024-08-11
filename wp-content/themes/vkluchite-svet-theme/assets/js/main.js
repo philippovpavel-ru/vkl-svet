@@ -72,7 +72,7 @@ if (document.querySelector(".sd-search")) {
 if (document.querySelector("#modalDialog")) {
   const dialog = document.querySelector("#modalDialog");
   const open = document.querySelectorAll(".sd-header__modal-button");
-  const close = document.querySelector(".sd-dialog__close");
+  const closes = document.querySelectorAll(".sd-dialog__close");
 
   open.forEach((e) => {
 
@@ -82,10 +82,7 @@ if (document.querySelector("#modalDialog")) {
     });
   })
 
-
-
   function handleClose() {
-
     const keyFrame = new KeyframeEffect(dialog,
       [{
         translate: "0 -100%", opacity: "0"
@@ -98,7 +95,9 @@ if (document.querySelector("#modalDialog")) {
     body.classList.remove('body-overflow');
   }
 
-  close.addEventListener("click", handleClose);
+  closes.forEach( close => {
+    close.addEventListener("click", handleClose);
+  });
 
   document.addEventListener('click', el => {
     if (dialog.hasAttribute("open")) {
@@ -464,6 +463,7 @@ function maskPhone(selector, masked = '+7 (___) ___-__-__') {
 }
 
 maskPhone('.wpcf7-tel');
+maskPhone('[type="tel"]');
 
 // вопросы
 

@@ -1,4 +1,8 @@
 <?php
+remove_action('woocommerce_checkout_order_review', 'woocommerce_checkout_payment', 20);
+
+remove_all_actions('woocommerce_checkout_terms_and_conditions');
+
 // Удаление лишних полей по умолчанию на странице офомления заказа
 add_filter('woocommerce_checkout_fields', 'vklsvet_wc_edit_fields', 25);
 function vklsvet_wc_edit_fields($fields)
@@ -47,4 +51,19 @@ function vklsvet_wc_edit_fields($fields)
   }
 
   return $fields;
+}
+
+add_filter('woocommerce_form_field', 'vklsvet_wc_textarea', 10, 4);
+function vklsvet_wc_textarea($field, $key, $args, $value)
+{
+  if ($args['type'] !== 'textarea') {
+    return $field;
+  }
+
+  return '<textarea
+    name="' . esc_attr($key) . '"
+    id="' . esc_attr($args['id']) . '"
+    rows="5"
+    ' . implode(' ', $args['input_class']) . '
+  >' . esc_attr($value) . '</textarea>';
 }
