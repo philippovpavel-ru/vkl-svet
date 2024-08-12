@@ -11,9 +11,6 @@ function vklsvet_wc_edit_fields($fields)
   unset($fields['billing']['billing_state']);
   unset($fields['shipping']['shipping_state']);
 
-  unset($fields['shipping']['shipping_company']);
-  unset($fields['billing']['billing_company']);
-
   // редактируем свойства полей
   foreach ($fields as $section => $section_fields) {
     // для каждого поля внутри секции

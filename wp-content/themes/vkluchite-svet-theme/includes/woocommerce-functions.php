@@ -15,7 +15,7 @@ function vklsvet_wc_theme_setup()
         'default_rows'    => 2,
         'min_rows'        => 1,
         'default_columns' => 3,
-        'min_columns'     => 2,
+        'min_columns'     => 3,
         'max_columns'     => 3,
       ),
     )
@@ -57,6 +57,7 @@ require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/catalog-functions
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/content-single-product-functions.php'; // Карточка товара
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/cart-functions.php'; // Работа с корзиной
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/checkout-functions.php'; // Работа с оформлением заказа
+require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/account-functions.php'; // Работа с ЛК
 
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/register-sidebar-shop-functions.php'; // Подключение сайдбаров
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/products-functions.php'; // Работа с товарами
