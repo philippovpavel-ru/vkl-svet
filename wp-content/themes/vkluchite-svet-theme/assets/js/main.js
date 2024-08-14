@@ -244,12 +244,12 @@ if (document.querySelector(".sd-card__cart_p")) {
   })
 };
 
-if (document.querySelector(".sd-card-page__favorite")) {
-  const favoriteCard = document.querySelector('.sd-card-page__favorite');
-  favoriteCard.addEventListener('click', (ep) => {
-    favoriteCard.classList.toggle('active');
-  })
-};
+// if (document.querySelector(".sd-card-page__favorite")) {
+//   const favoriteCard = document.querySelector('.sd-card-page__favorite');
+//   favoriteCard.addEventListener('click', (ep) => {
+//     favoriteCard.classList.toggle('active');
+//   })
+// };
 
 // слайдер главной
 
@@ -527,25 +527,31 @@ buttonsTabs.forEach((item, index) => {
 });
 
 // выпадающий список в фильтре
+(function () {
+  if (!document.querySelector('.details')) return;
 
-const details = document.querySelectorAll('.details');
-details.forEach((e) => {
-  const summary = e.querySelector('.summary');
-  const subMenu = e.querySelectorAll('.sub-menu');
-  summary.addEventListener('click', function () {
-    summary.classList.toggle('summary-open');
-    for (let i = 0; i < subMenu.length; i++) {
-      subMenu[i].classList.toggle('details-open');
-    }
+  const details = document.querySelectorAll('.details');
+  details.forEach((e) => {
+    const summary = e.querySelector('.summary');
+    const subMenu = e.querySelectorAll('.sub-menu');
+    summary.addEventListener('click', function () {
+      summary.classList.toggle('summary-open');
+      for (let i = 0; i < subMenu.length; i++) {
+        subMenu[i].classList.toggle('details-open');
+      }
+    })
   })
-})
+})();
 
 // мобильный фильтр
+(function() {
+  if (!document.querySelector('.categ-1-categ__catalog-button')) return;
 
-if (document.querySelector('.categ-1-categ__catalog-button')) {
   const filterButton = document.querySelector('.categ-1-categ__catalog-button');
   const filterClose = document.querySelector('.categ-1-categ__filteres-close');
   const filter = document.querySelector('.categ-1-categ__filter');
+
+  if (!filter) return;
 
   filterButton.addEventListener('click', () => {
     filter.classList.add('categ-1-categ__filter_open');
@@ -558,7 +564,7 @@ if (document.querySelector('.categ-1-categ__catalog-button')) {
     body.classList.remove('body-overflow');
     html.classList.remove('body-overflow');
   })
-}
+})();
 
 // range slider ползунок
 if (document.getElementById('sliderPrice')) {
@@ -620,15 +626,15 @@ if (document.querySelector('.b-header__currency')) {
 
 // добавить в избранное
 
-if (document.querySelector('.sd-card__favorite')) {
-  const favorite = document.querySelectorAll('.sd-card__favorite');
+// if (document.querySelector('.sd-card__favorite')) {
+//   const favorite = document.querySelectorAll('.sd-card__favorite');
 
-  favorite.forEach((e) => {
-    e.addEventListener('click', () => {
-      e.classList.toggle('active');
-    });
-  });
-}
+//   favorite.forEach((e) => {
+//     e.addEventListener('click', () => {
+//       e.classList.toggle('active');
+//     });
+//   });
+// }
 
 // карта
 (function () {

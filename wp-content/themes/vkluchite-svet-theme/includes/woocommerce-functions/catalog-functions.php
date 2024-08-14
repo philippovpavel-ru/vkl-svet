@@ -5,7 +5,6 @@ remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20);
 remove_action('woocommerce_before_shop_loop_item_title', 'woocommerce_show_product_loop_sale_flash', 10);
 remove_action('woocommerce_before_shop_loop_item', 'woocommerce_template_loop_product_link_open', 10);
 remove_action('woocommerce_after_shop_loop_item_title', 'woocommerce_template_loop_rating', 5);
-remove_action('woocommerce_after_shop_loop', 'woocommerce_pagination', 10);
 
 // обертка для шапки с заголовком и формой сортировки START
 add_action('woocommerce_before_shop_loop', 'vlksvet_wc_catalog_header_start', 15);
@@ -121,14 +120,4 @@ function vlksvet_wc_loop_add_to_cart_link($link)
   $link = str_replace('class="button', 'class="sd-card__cart button', $link);
 
   return $link;
-}
-
-// Пагинация по каталогу
-add_action('woocommerce_after_shop_loop', 'vlksvet_wc_pagination', 10);
-function vlksvet_wc_pagination()
-{
-  the_posts_pagination([
-    'prev_text' => '',
-    'next_text' => '',
-  ]);
 }
