@@ -20,5 +20,7 @@
  * Version:     1.0
  */
 
+if (!defined('ABSPATH')) exit;
+
 require_once plugin_dir_path(__FILE__) . 'widgets/wc-categories.php';
 require_once plugin_dir_path(__FILE__) . 'widgets/wc-filter.php';

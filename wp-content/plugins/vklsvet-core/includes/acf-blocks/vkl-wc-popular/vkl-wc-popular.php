@@ -15,7 +15,7 @@ if (!empty($block['align'])) {
   $class_name .= ' align' . $block['align'];
 }
 
-if (!class_exists('WooCommerce')) {
+if (!is_plugin_active('woocommerce/woocommerce.php')) {
   if (is_admin()) {
     echo '<p>Для работы требуется активировать плагин "WooCommerce"</p>';
   }

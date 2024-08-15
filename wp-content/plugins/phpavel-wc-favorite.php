@@ -20,6 +20,8 @@
  * Version:     1.0
  */
 
+if (!defined('ABSPATH')) exit;
+
 function phpavel_wc_favorite_link()
 {
   if (! is_user_logged_in()) return;
