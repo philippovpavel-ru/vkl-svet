@@ -105,7 +105,13 @@
   <div class="sd-mobail-panel">
     <a class="sd-header__search-button"></a>
     <?php if (class_exists('WooCommerce')) : ?>
-      <a href="favorite.html" class="favorite"></a>
+
+      <?php
+      if ( function_exists('phpavel_wc_favorite_link') ) {
+        phpavel_wc_favorite_link();
+      }
+      ?>
+
       <?php
       if ( function_exists('vklsvet_wc_cart_link') ) {
         vklsvet_wc_cart_link('cart', false);

@@ -61,5 +61,4 @@ require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/account-functions
 
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/register-sidebar-shop-functions.php'; // Подключение сайдбаров
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/products-functions.php'; // Работа с товарами
-require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/favorite-functions.php'; // Избранное
 require_once VKLS_THEME_DIR . '/includes/woocommerce-functions/form-login-functions.php'; // Форма авторизации

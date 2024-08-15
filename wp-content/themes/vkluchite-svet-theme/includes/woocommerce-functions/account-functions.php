@@ -55,13 +55,11 @@ function vlksvet_wc_rename_links($menu_links)
   $menu_links['orders'] = 'Мои заказы';
   $menu_links['edit-account'] = 'Личные данные';
 
-  $new_menu_links = [
-    'edit-account' => $menu_links['edit-account'],
-    'orders' => $menu_links['orders'],
-    'customer-logout' => $menu_links['customer-logout'],
-  ];
+  $edit_account = array_splice($menu_links, array_search('edit-account', array_keys($menu_links)), 1);
+  $orders = array_splice($menu_links, array_search('orders', array_keys($menu_links)), 1);
+  $menu_links = array_merge($edit_account, $orders, $menu_links);
 
-  return $new_menu_links;
+  return $menu_links;
 }
 
 // Перемещаем содержимое табов

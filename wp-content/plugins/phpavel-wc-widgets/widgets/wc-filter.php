@@ -549,5 +549,5 @@ function snd_wc_filter_widget_load()
 add_action('admin_enqueue_scripts', 'snd_wc_filter_widget_enqueue_back');
 function snd_wc_filter_widget_enqueue_back()
 {
-	wp_enqueue_style('custom_filter_core-admin_main', plugin_dir_url(__FILE__) . 'widgets/wc-filter/admin.css');
+	wp_enqueue_style('custom_filter_core-admin_main', plugin_dir_url(__FILE__) . 'wc-filter/admin.css');
 }

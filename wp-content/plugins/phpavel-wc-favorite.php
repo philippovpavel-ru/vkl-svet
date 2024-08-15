@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Plugin Name: [ PHPAVEL Избранное в личном кабинете ]
+ * Plugin Name: [ PHPavel Избранное в личном кабинете ]
  * Description: Страница избранное в личном кабинете, кнопки избранное в карточках товара
  *
  * Author URI: https://philippovpavel.ru
@@ -19,6 +19,19 @@
  *
  * Version:     1.0
  */
+
+function phpavel_wc_favorite_link()
+{
+  if (! is_user_logged_in()) return;
+
+  $myaccount_page_id = get_option('woocommerce_myaccount_page_id');
+  $myaccount_page_url = get_permalink($myaccount_page_id);
+  $edit_account_endpoint = 'favorite-list';
+
+  $link = esc_url($myaccount_page_url . $edit_account_endpoint);
+
+  echo "<a href='$link' class='favorite'></a>";
+}
 
 // Favorite button to single product
 add_action('woocommerce_single_product_summary', 'phpavel_wc_favorite', 35);
@@ -75,9 +88,9 @@ function phpavel_wc_show_profile_fields($user)
 {
   $userID = $user->ID;
 
-  $current_city_ID = get_the_author_meta('vklsvet_favorite_list', $userID) ? esc_attr(get_the_author_meta('vklsvet_favorite_list', $userID)) : '';
+  $vklsvet_favorite_list = get_the_author_meta('vklsvet_favorite_list', $userID) ? esc_attr(get_the_author_meta('vklsvet_favorite_list', $userID)) : '';
 
-  echo "<input id='vklsvet_favorite_list' name='vklsvet_favorite_list' type='hidden' value='$current_city_ID' disabled />";
+  echo "<input id='vklsvet_favorite_list' name='vklsvet_favorite_list' type='hidden' value='$vklsvet_favorite_list' disabled />";
 }
 
 // Содержимое страницы избранное в ЛК
