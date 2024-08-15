@@ -106,7 +106,11 @@
     <a class="sd-header__search-button"></a>
     <?php if (class_exists('WooCommerce')) : ?>
       <a href="favorite.html" class="favorite"></a>
-      <?php vklsvet_wc_cart_link('cart', false); ?>
+      <?php
+      if ( function_exists('vklsvet_wc_cart_link') ) {
+        vklsvet_wc_cart_link('cart', false);
+      }
+      ?>
     <?php endif; ?>
 
     <?php if ($cf7_id) : ?>

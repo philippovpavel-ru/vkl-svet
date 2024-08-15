@@ -16,7 +16,9 @@
 # Plugins with exceptions
 !/wp-content/plugins/
 /wp-content/plugins/*
-!/wp-content/plugins/snd-*
+!/wp-content/plugins/vklsvet-*
+!/wp-content/plugins/phpavel-wc-favorite*
+!/wp-content/plugins/phpavel-wc-widgets*
 
 # Themes with exceptions
 !/wp-content/themes/

@@ -1,4 +1,7 @@
 <?php
+// Disable ACF Options Page
+add_filter('acf/settings/show_admin', '__return_false');
+
 // CF7 Options Page
 if ( function_exists('acf_add_options_sub_page') && class_exists('WPCF7') ) {
   acf_add_options_sub_page(array(

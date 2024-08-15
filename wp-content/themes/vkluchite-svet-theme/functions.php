@@ -78,16 +78,8 @@ function vklsvet_disable_gutenberg($current_status, $post_type)
 
 add_filter('wpcf7_autop_or_not', '__return_false');
 
-require_once('includes/breadcrumbs.php');
-require_once('includes/register-post-types.php');
-
-if (class_exists('acf_pro')) {
-  require_once('includes/acf-functions.php');
-  require_once('includes/acf-blocks.php');
-}
+require_once(VKLS_THEME_DIR . '/includes/breadcrumbs.php');
 
 if (class_exists('WooCommerce')) {
-  require_once('includes/woocommerce-functions.php');
-  require_once('includes/widgets/wc-categories.php');
-  require_once('includes/widgets/wc-filter.php');
+  require_once VKLS_THEME_DIR . '/includes/woocommerce-functions.php';
 }

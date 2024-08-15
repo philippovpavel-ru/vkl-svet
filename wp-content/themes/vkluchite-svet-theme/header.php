@@ -44,7 +44,7 @@
         <a class="sd-header__search-button"></a>
 
         <?php
-        if (class_exists('WooCommerce')) {
+        if (class_exists('WooCommerce') && function_exists('vklsvet_wc_cart_link')) {
           vklsvet_wc_cart_link();
         }
         ?>
