@@ -95,6 +95,9 @@
       elseif (is_404()) { // если страницы не существует
         echo '<p>Ошибка 404</p>';
       }
+      elseif ( is_search() ) { // поиск
+        echo '<p>Поиск "'. get_search_query() .'"</p>';
+      }
 
       if ($page_num > 1) { // номер текущей страницы
         echo ' (' . $page_num . '-я страница)';
