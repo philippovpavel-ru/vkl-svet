@@ -12,9 +12,14 @@ function vklsvet_delete_acf_options() {
 
   $get_fields = get_fields( 'option' );
   $array_keys = array_keys($get_fields);
+  $delete_keys = ['addresses', 'cf7_image_id', 'cf7_subtitle', 'cf7_text_button_to_header', 'cf7_title', 'contact_form_id', 'email', 'map_xy', 'periods', 'phone', 'instagram_url', 'telegram_url', 'vk_url', 'whatsapp_url'];
 
-  foreach ($array_keys as $key) {
-    delete_field($key, 'option');
+  foreach ($array_keys as $value) {
+    if ( ! in_array($value, $delete_keys) ) {
+      continue;
+    }
+
+    delete_field($value, 'option');
   }
 }
 

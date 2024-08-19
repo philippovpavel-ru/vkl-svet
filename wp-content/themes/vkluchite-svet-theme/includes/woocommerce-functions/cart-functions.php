@@ -111,13 +111,6 @@ function vklsvet_wc_cart_product_price($product, $cart_item, $cart_item_key, $re
 {
   if ( !$product ) return;
 
-  // $price = apply_filters(
-  //   'woocommerce_cart_item_price',
-  //   WC()->cart->get_product_price($product),
-  //   $cart_item,
-  //   $cart_item_key
-  // ); // PHPCS: XSS ok.
-
   $price = $product->get_price_html();
 
   $product_price = <<<PRICE

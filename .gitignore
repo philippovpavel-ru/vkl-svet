@@ -19,6 +19,8 @@
 !/wp-content/plugins/vklsvet-*
 !/wp-content/plugins/phpavel-wc-favorite*
 !/wp-content/plugins/phpavel-wc-widgets*
+!/wp-content/plugins/phpavel-wc-order-pdf*
+/wp-content/plugins/phpavel-wc-order-pdf/_*
 
 # Themes with exceptions
 !/wp-content/themes/

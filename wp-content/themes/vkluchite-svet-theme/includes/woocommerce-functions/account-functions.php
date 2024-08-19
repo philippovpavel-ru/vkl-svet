@@ -24,6 +24,10 @@ function vklsvet_wc_change_fields($fields)
 
   // редактируем свойства полей
   foreach ($fields as $section_field => $section_field_settings) {
+    if ( empty($fields[$section_field]['label']) ) {
+      continue;
+    }
+
     $fields[$section_field]['placeholder'] = '';
 
     if ($fields[$section_field]['required']) {

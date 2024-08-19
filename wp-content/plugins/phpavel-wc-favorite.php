@@ -22,6 +22,10 @@
 
 if (!defined('ABSPATH')) exit;
 
+if ( ! function_exists('WC') ) {
+  return;
+}
+
 function phpavel_wc_favorite_link()
 {
   if (! is_user_logged_in()) return;

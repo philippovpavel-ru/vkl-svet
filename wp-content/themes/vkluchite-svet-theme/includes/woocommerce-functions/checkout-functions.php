@@ -15,13 +15,6 @@ function vklsvet_wc_edit_fields($fields)
   foreach ($fields as $section => $section_fields) {
     // для каждого поля внутри секции
     foreach ($section_fields as $section_field => $section_field_settings) {
-      $fields[$section][$section_field]['placeholder'] = '';
-
-      // учитываем обязательные поля
-      if (! empty($fields[$section][$section_field]['required'])) {
-        $fields[$section][$section_field]['placeholder'] = '*';
-      }
-
       // удаляем обязательность поля "область"
       if ( $section_field === 'billing_state' || $section_field === 'shipping_state' ) {
         $fields[$section][$section_field]['required'] = '';
@@ -42,8 +35,18 @@ function vklsvet_wc_edit_fields($fields)
         $fields[$section][$section_field]['priority'] = 45;
       }
 
-      $fields[$section][$section_field]['placeholder'] .= $fields[$section][$section_field]['label'];
-      $fields[$section][$section_field]['label'] = '';
+      // Заполняем placeholder
+      if ( $fields[$section][$section_field]['label'] ) {
+        $fields[$section][$section_field]['placeholder'] = '';
+
+        // учитываем обязательные поля
+        if (! empty($fields[$section][$section_field]['required'])) {
+          $fields[$section][$section_field]['placeholder'] = '*';
+        }
+
+        $fields[$section][$section_field]['placeholder'] .= $fields[$section][$section_field]['label'];
+        $fields[$section][$section_field]['label'] = '';
+      }
     }
   }
 

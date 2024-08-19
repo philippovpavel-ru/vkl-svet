@@ -1,0 +1,27 @@
+.download-pdf-link-item {
+  opacity: .5;
+  pointer-events: none;
+}
+
+.download-pdf-link-item.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#generate-pdf-link {
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+  color: #2271b1;
+  text-decoration: underline;
+}
+
+#generate-pdf-link:hover {
+  color: #135e96;
+  opacity: .7
+}
+
+#download-pdf-link:hover {
+  opacity: .7 !important;
+}

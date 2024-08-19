@@ -1,6 +1,6 @@
 <?php
 // Disable ACF Options Page
-add_filter('acf/settings/show_admin', '__return_false');
+// add_filter('acf/settings/show_admin', '__return_false');
 
 // CF7 Options Page
 if ( function_exists('acf_add_options_sub_page') && is_plugin_active('contact-form-7/wp-contact-form-7.php') ) {
