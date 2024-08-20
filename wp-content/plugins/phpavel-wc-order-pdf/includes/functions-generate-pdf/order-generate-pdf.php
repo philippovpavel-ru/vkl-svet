@@ -65,12 +65,42 @@ function phpavel_get_additional_order( $orderOBJ )
 	$note = $orderOBJ->get_customer_note() ? wp_kses_post( $orderOBJ->get_customer_note() ) . '<br><br>' : ''; // заметка
 	$payment_method = $orderOBJ->get_payment_method_title() ? wp_kses_post( $orderOBJ->get_payment_method_title() ) . '<br>' : ''; // выбранный метод оплаты
 	$shipping_method = wp_kses_post( $orderOBJ->get_shipping_to_display() ); // выбранный метод доставки
+	$coupons = phpavel_get_apply_order_coupons($orderOBJ) ? '<br>' . phpavel_get_apply_order_coupons($orderOBJ) : ''; // использованные купоны
 
 	return <<<ADDITIONAL
 		$note
 		$payment_method
 		$shipping_method
+		$coupons
 	ADDITIONAL;
+}
+
+function phpavel_get_apply_order_coupons($orderOBJ)
+{
+	if (! $orderOBJ) return;
+
+	$coupons_string = '';
+	$get_coupons = $orderOBJ->get_coupons() ?? [];
+
+	if ( ! empty( $get_coupons ) ) {
+		$index = 0;
+
+		$coupons_string = 'Использованные купоны: ';
+		foreach ($get_coupons as $coupon) {
+			$index++;
+
+			$coupon_code = $coupon->get_code();
+			$coupon_discount = wc_price($coupon->get_discount());
+
+			$coupons_string .= "<strong>$coupon_code</strong> (-$coupon_discount)";
+
+			if (count($get_coupons) !== $index) {
+				$coupons_string .= ', ';
+			}
+		}
+	}
+
+	return wp_kses_post($coupons_string);
 }
 
 function phpavel_get_address_order( $orderOBJ )
