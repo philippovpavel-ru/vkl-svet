@@ -30,19 +30,18 @@
   $product_title = !empty($fields['product_title']) ? esc_html($fields['product_title']) : 'Товары по теме статьи';
   $select_products = !empty($fields['select_products']) ? $fields['select_products'] : [];
   ?>
+  <?php if ($select_products) : ?>
   <section class="sd-popular">
     <div class="container">
       <h2><?php echo $product_title; ?></h2>
 
       <?php
-      if ($select_products) {
-        $select_products_string = join(",", array_unique($select_products));
-
-        echo do_shortcode("[products ids='$select_products_string' class='swiper swiper-pop']");
-      }
+      $select_products_string = join(",", array_unique($select_products));
+      echo do_shortcode("[products ids='$select_products_string' orderby='post__in' class='swiper swiper-pop']");
       ?>
     </div>
   </section>
+  <?php endif; ?>
 <?php endif; ?>
 
 <?php

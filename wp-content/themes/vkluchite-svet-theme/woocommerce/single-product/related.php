@@ -4,7 +4,9 @@ if (!defined('ABSPATH')) {
 }
 
 global $product;
-$upsells = wc_get_related_products($product->get_id(), $posts_per_page) ?: [];
+$related_array = wc_get_related_products($product->get_id(), $posts_per_page) ?: [];
+$upsells_array = $product->get_upsell_ids() ?: [];
+$upsells = array_merge($upsells_array, $related_array);
 
 shuffle($upsells);
 

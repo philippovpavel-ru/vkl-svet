@@ -94,12 +94,19 @@ function phpavel_admin_pdf_get_attributes($product_id = '')
     $isAttrVariation = $attribute->get_variation();
     if ($isVariable && $isAttrVariation) continue;
 
+    $attr_id = (int) $attribute->get_id();
     $attr_name = esc_html($attribute->get_name());
     $excludeAttrs = ['pa_chip', 'pa_series'];
     if (in_array($attr_name, $excludeAttrs)) continue;
 
     $attr_label  = esc_html(wc_attribute_label($attr_name));
-    $attr_values = join(', ', wp_get_post_terms($product_id, $attr_name, array('fields' => 'names')));
+    if ( $attr_id !== 0) {
+      $attr_values = wp_get_post_terms($product_id, $attr_name, array('fields' => 'names')) ?: [];
+    } else {
+      $attr_values = $attribute->get_options() ?: [];
+    }
+
+    $attr_values = join(', ', $attr_values);
 
     $return[] = "<b>$attr_label:</b> $attr_values";
   }

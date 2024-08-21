@@ -997,3 +997,11 @@ span.woocommerce-Price-amount span {
   text-transform: uppercase;
   margin-top: 5px;
 }
+
+.woocommerce-shipping-fields.sd-cart__order-box:not(:has( > * )){
+  display: none;
+}
+
+.sd-card-page__text .stock {
+  display: none;
+}

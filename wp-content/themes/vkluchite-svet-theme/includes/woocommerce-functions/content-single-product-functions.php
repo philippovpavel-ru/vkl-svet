@@ -207,7 +207,9 @@ function vklsvet_wc_single_product_js()
   if ( ! ( is_product() && is_single() ) ) return;
 
   global $product;
-  $price = $product->get_price_html();
+  if(!is_object($product)) return;
+  
+  $price = !empty($product->get_price_html()) ? $product->get_price_html() : $product->get_price_html();
 
   $script =
   "<script>

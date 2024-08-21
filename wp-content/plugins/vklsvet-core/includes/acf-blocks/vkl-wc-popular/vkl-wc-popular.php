@@ -44,7 +44,7 @@ $fadeInLeft_animated = $is_animate ? 'wow animate__animated animate__fadeInLeft'
     if ($select_products) {
       $select_products_string = join(",", array_unique($select_products));
 
-      echo do_shortcode("[products ids='$select_products_string' class='swiper swiper-pop']");
+      echo do_shortcode("[products ids='$select_products_string' orderby='post__in' class='swiper swiper-pop']");
     }
     ?>
   </div>
